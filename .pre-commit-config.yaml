@@ -1,0 +1,73 @@
+default_install_hook_types:
+  - pre-commit
+  - pre-push
+  - commit-msg
+minimum_pre_commit_version: 3.2.0
+# Stage names now match git hooks; requires pre-commit >= 3.2.0
+default_stages:
+  - post-checkout
+  - post-merge
+  - post-rewrite
+  - pre-commit
+  - pre-rebase
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      # Linting
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      # Git tidy
+      - id: check-merge-conflict
+      - id: check-vcs-permalinks
+      - id: forbid-new-submodules
+      # Cross platform
+      - id: check-case-conflict
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      # Security
+      - id: detect-private-key
+        stages:
+          - pre-push
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: "3.0.0"
+    hooks:
+      - id: shellcheck
+        types: []
+        types_or: [file, shell]
+        files: (\.sh|\.bash)$
+        args: ["-S", "warning"]
+
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v4.0.0
+    hooks:
+      - id: conventional-pre-commit
+        stages:
+          - commit-msg
+        args: [feat, fix, update, chore, test, docs, nit]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.0
+    hooks:
+      # Leaks check
+      - id: gitleaks
+        stages:
+          - pre-push
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema.git
+    rev: 0.31.2
+    hooks:
+      # GitHub Schema check
+      - id: check-github-workflows
+
+  - repo: https://github.com/lycheeverse/lychee.git
+    rev: v0.15.1
+    hooks:
+      # Link checks
+      - id: lychee
+        args: ["--no-progress", "--exclude-all-private", "--include-fragments"]
+        stages:
+          - pre-push

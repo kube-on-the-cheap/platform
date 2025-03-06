@@ -1,0 +1,473 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "fluxcd@2.4.0": {
+      "last_modified": "2025-02-07T11:26:36Z",
+      "resolved": "github:NixOS/nixpkgs/d98abf5cf5914e5e4e9d57205e3af55ca90ffc1d#fluxcd",
+      "source": "devbox-search",
+      "version": "2.4.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/245khps9ykcpxa50la2jhfj25yxqryk5-fluxcd-2.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/245khps9ykcpxa50la2jhfj25yxqryk5-fluxcd-2.4.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/5dakz4ch5jlyhs0jg8dcy21qq8ail4js-fluxcd-2.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/5dakz4ch5jlyhs0jg8dcy21qq8ail4js-fluxcd-2.4.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0fn39mz45kv9mmai2gpxpq91vr7f545a-fluxcd-2.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0fn39mz45kv9mmai2gpxpq91vr7f545a-fluxcd-2.4.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/igflkykxy2mkib6snqy6d24fs303lrgb-fluxcd-2.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/igflkykxy2mkib6snqy6d24fs303lrgb-fluxcd-2.4.0"
+        }
+      }
+    },
+    "kubectl@1.32.1": {
+      "last_modified": "2025-02-07T11:26:36Z",
+      "resolved": "github:NixOS/nixpkgs/d98abf5cf5914e5e4e9d57205e3af55ca90ffc1d#kubectl",
+      "source": "devbox-search",
+      "version": "1.32.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/bxnmjl64ys4blg5gmd7v6i93j627a37z-kubectl-1.32.1",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/0fp6a3jphb7l2qymdhyc8zfci49dwwq8-kubectl-1.32.1-man",
+              "default": true
+            },
+            {
+              "name": "convert",
+              "path": "/nix/store/jjjx71bfqir3ra9m4ja8sr0y6r27j1di-kubectl-1.32.1-convert"
+            }
+          ],
+          "store_path": "/nix/store/bxnmjl64ys4blg5gmd7v6i93j627a37z-kubectl-1.32.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/965671cha74xnwimnp0mp3810z981fg3-kubectl-1.32.1",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/h5phzzl23d2n2rck2g3p8gi1n9rpw39z-kubectl-1.32.1-man",
+              "default": true
+            },
+            {
+              "name": "convert",
+              "path": "/nix/store/47y2qv2v0yjcbdl8p4ir1l35n50vcgk6-kubectl-1.32.1-convert"
+            }
+          ],
+          "store_path": "/nix/store/965671cha74xnwimnp0mp3810z981fg3-kubectl-1.32.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/amx4pha2xrlbjgl1cgsm2aw6889nlc58-kubectl-1.32.1",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/6ic0ah864m9ybaavzpn4549bkqjgs63m-kubectl-1.32.1-man",
+              "default": true
+            },
+            {
+              "name": "convert",
+              "path": "/nix/store/xvaxw41bzksd38lqnfm7r8w34yk2wcgs-kubectl-1.32.1-convert"
+            }
+          ],
+          "store_path": "/nix/store/amx4pha2xrlbjgl1cgsm2aw6889nlc58-kubectl-1.32.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zph6v36yrnyixil25mnysr82i933kx6i-kubectl-1.32.1",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/q843mipr11308vvvp7465yc7y4k5mg06-kubectl-1.32.1-man",
+              "default": true
+            },
+            {
+              "name": "convert",
+              "path": "/nix/store/y3l02a82n3zzzdipccb1xpdw3yz68cb0-kubectl-1.32.1-convert"
+            }
+          ],
+          "store_path": "/nix/store/zph6v36yrnyixil25mnysr82i933kx6i-kubectl-1.32.1"
+        }
+      }
+    },
+    "kubernetes-helm-wrapped@3.17.1": {
+      "last_modified": "2025-02-23T09:42:26Z",
+      "resolved": "github:NixOS/nixpkgs/2d068ae5c6516b2d04562de50a58c682540de9bf#kubernetes-helm-wrapped",
+      "source": "devbox-search",
+      "version": "3.17.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2ahsa1hs8qbxapjjz9lr8s9k3kngp9yf-helm-3.17.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/2ahsa1hs8qbxapjjz9lr8s9k3kngp9yf-helm-3.17.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/x4x0b02wa7lh6s65n9hvhg2nixb62982-helm-3.17.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/x4x0b02wa7lh6s65n9hvhg2nixb62982-helm-3.17.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gn9rjqsmhz53piavrak768j55b5dgmsy-helm-3.17.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/gn9rjqsmhz53piavrak768j55b5dgmsy-helm-3.17.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/yz41pqgva31gli6vldw15znppflw6lz4-helm-3.17.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/yz41pqgva31gli6vldw15znppflw6lz4-helm-3.17.1"
+        }
+      }
+    },
+    "kustomize@5.6.0": {
+      "last_modified": "2025-02-07T11:26:36Z",
+      "resolved": "github:NixOS/nixpkgs/d98abf5cf5914e5e4e9d57205e3af55ca90ffc1d#kustomize",
+      "source": "devbox-search",
+      "version": "5.6.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9646zxz0jx2a0l5mk3yxhn5hrrx3z2vp-kustomize-5.6.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9646zxz0jx2a0l5mk3yxhn5hrrx3z2vp-kustomize-5.6.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jhcp67rq5ibyxcnb3z088ma0v56wry7x-kustomize-5.6.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/jhcp67rq5ibyxcnb3z088ma0v56wry7x-kustomize-5.6.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rav5v2lwyga6sdmkdccvs9fhw1yal9gy-kustomize-5.6.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/rav5v2lwyga6sdmkdccvs9fhw1yal9gy-kustomize-5.6.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mb7qv0k9ijjkxijamjgqsz440f0qqlil-kustomize-5.6.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/mb7qv0k9ijjkxijamjgqsz440f0qqlil-kustomize-5.6.0"
+        }
+      }
+    },
+    "lychee@0.18.1": {
+      "last_modified": "2025-02-13T04:03:32Z",
+      "resolved": "github:NixOS/nixpkgs/2d55b4c1531187926c2a423f6940b3b1301399b5#lychee",
+      "source": "devbox-search",
+      "version": "0.18.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/04rcmfi2xx6aqckc77lirx7nb8174pc8-lychee-0.18.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/04rcmfi2xx6aqckc77lirx7nb8174pc8-lychee-0.18.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/y7y4qmhpv13dlkn4wwh8r8sgal8mhdy4-lychee-0.18.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/y7y4qmhpv13dlkn4wwh8r8sgal8mhdy4-lychee-0.18.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/qjlrvb4gvkxa6qk8ba9d0fwrcl6s23cm-lychee-0.18.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/qjlrvb4gvkxa6qk8ba9d0fwrcl6s23cm-lychee-0.18.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/c6lgawbbwbfly45zdl723jhdl30lk33g-lychee-0.18.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/c6lgawbbwbfly45zdl723jhdl30lk33g-lychee-0.18.1"
+        }
+      }
+    },
+    "oci-cli@3.14.0": {
+      "last_modified": "2025-02-07T11:26:36Z",
+      "resolved": "github:NixOS/nixpkgs/d98abf5cf5914e5e4e9d57205e3af55ca90ffc1d#oci-cli",
+      "source": "devbox-search",
+      "version": "3.14.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/z6hglzsy36bz76b42fxhk12aaq89g5hy-oci-cli-3.14.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/f64qiacgrhq1yz5gh0hgnn4xai1phid4-oci-cli-3.14.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/z6hglzsy36bz76b42fxhk12aaq89g5hy-oci-cli-3.14.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/q24mphz3hha22jmp3jci6g2gs15vrp17-oci-cli-3.14.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/r7vi1zzamxdi263bj3yn97pvb7i2s18x-oci-cli-3.14.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/q24mphz3hha22jmp3jci6g2gs15vrp17-oci-cli-3.14.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3gq9w7p9m2naiqifn08pikqrr9cwqzkz-oci-cli-3.14.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/c6vyf56yanfgjs8xdndxh06hlp3nhl6k-oci-cli-3.14.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/3gq9w7p9m2naiqifn08pikqrr9cwqzkz-oci-cli-3.14.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/62ly5mv3jhpjl9d97nyap4dvn5fsz4fl-oci-cli-3.14.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/cmxx4bq75r2nr89pmx00fvhy19iwf2vc-oci-cli-3.14.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/62ly5mv3jhpjl9d97nyap4dvn5fsz4fl-oci-cli-3.14.0"
+        }
+      }
+    },
+    "pre-commit@4.0.1": {
+      "last_modified": "2025-02-24T11:23:12Z",
+      "resolved": "github:NixOS/nixpkgs/d9b69c3ec2a2e2e971c534065bdd53374bd68b97#pre-commit",
+      "source": "devbox-search",
+      "version": "4.0.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1d72c6irxrvvc81mpds9yl26vglki91k-pre-commit-4.0.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/s2w0cyimcc4qcl65sjh5r6cxafc1h467-pre-commit-4.0.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/1d72c6irxrvvc81mpds9yl26vglki91k-pre-commit-4.0.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jjy89zx3q6pjjc5g6vznagn347arysm2-pre-commit-4.0.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/llxn7kzwnkm33wnw34yl379zxv50nhcl-pre-commit-4.0.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/jjy89zx3q6pjjc5g6vznagn347arysm2-pre-commit-4.0.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9f8bsa4n2srnrdxy437lbaar2cyjpjc8-pre-commit-4.0.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/zwsxv57s7hv30mvk669djjyyynzfbqvp-pre-commit-4.0.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/9f8bsa4n2srnrdxy437lbaar2cyjpjc8-pre-commit-4.0.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/v6v2jdx5jq98vcgsb3yvwl1g2dg6qz54-pre-commit-4.0.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/7pw1rj59id4h05ac2bz58vinixk43l7x-pre-commit-4.0.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/v6v2jdx5jq98vcgsb3yvwl1g2dg6qz54-pre-commit-4.0.1"
+        }
+      }
+    },
+    "python312Packages.ruamel-yaml@latest": {
+      "last_modified": "2025-02-07T11:26:36Z",
+      "resolved": "github:NixOS/nixpkgs/d98abf5cf5914e5e4e9d57205e3af55ca90ffc1d#python312Packages.ruamel-yaml",
+      "source": "devbox-search",
+      "version": "0.18.10",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mp44z1a4wgm5pqaplwin5lddlw129zpd-python3.12-ruamel-yaml-0.18.10",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/a8wsvqmsj2l8zd7l9djmaawx503zh10m-python3.12-ruamel-yaml-0.18.10-dist"
+            }
+          ],
+          "store_path": "/nix/store/mp44z1a4wgm5pqaplwin5lddlw129zpd-python3.12-ruamel-yaml-0.18.10"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/p0h50vcrc306hgbz6djc8yf5dyqhhp51-python3.12-ruamel-yaml-0.18.10",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/pdy78fgkjd21h2rbg0sw5f9yd7nj7jiq-python3.12-ruamel-yaml-0.18.10-dist"
+            }
+          ],
+          "store_path": "/nix/store/p0h50vcrc306hgbz6djc8yf5dyqhhp51-python3.12-ruamel-yaml-0.18.10"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1cv16783c804c4n65l3y1jml9vp0s33f-python3.12-ruamel-yaml-0.18.10",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/k7gzriz769z0hzk0d11mf5jawgw8pqgr-python3.12-ruamel-yaml-0.18.10-dist"
+            }
+          ],
+          "store_path": "/nix/store/1cv16783c804c4n65l3y1jml9vp0s33f-python3.12-ruamel-yaml-0.18.10"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ibhipb63nbk0g5xdyis0rrdkz2gq0m3h-python3.12-ruamel-yaml-0.18.10",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/i5hl7bg55z9c6pzmzg3r0724kb6x59jg-python3.12-ruamel-yaml-0.18.10-dist"
+            }
+          ],
+          "store_path": "/nix/store/ibhipb63nbk0g5xdyis0rrdkz2gq0m3h-python3.12-ruamel-yaml-0.18.10"
+        }
+      }
+    }
+  }
+}

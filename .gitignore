@@ -1,0 +1,9 @@
+# Default garbage
+**/.DS_Store
+.vscode/*
+
+# Taskfile checksum ignores
+.task/checksum/**
+
+# env vars to govern the Control Plane access
+.envrc
