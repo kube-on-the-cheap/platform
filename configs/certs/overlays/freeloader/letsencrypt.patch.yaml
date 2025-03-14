@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    solvers:
+      - dns01:
+          selector:
+            dnsZones:
+              - "cloud.blacksd.tech"
+          digitalocean:
+            tokenSecretRef:
+              name: digitalocean-dns
+              key: access-token
