@@ -5,10 +5,10 @@ metadata:
 spec:
   acme:
     solvers:
-      - dns01:
-          selector:
-            dnsZones:
-              - "cloud.blacksd.tech"
+      - selector:
+          dnsZones:
+            - "cloud.blacksd.tech"
+        dns01:
           digitalocean:
             tokenSecretRef:
               name: digitalocean-dns
