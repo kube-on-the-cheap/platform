@@ -1,0 +1,20 @@
+apiVersion: external-secrets.io/v1alpha1
+kind: PushSecret
+metadata:
+  name: letsencrypt-account-key
+  namespace: cert-manager
+spec:
+  updatePolicy: Replace
+  refreshInterval: 24h
+  secretStoreRefs:
+    - kind: ClusterSecretStore
+      name: oci-vault
+  selector:
+    secret:
+      name: letsencrypt-account-key
+  data:
+    - conversionStrategy: None
+      match:
+        secretKey: tls.key
+        remoteRef:
+          remoteKey: letsencrypt-account-key
