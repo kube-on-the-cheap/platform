@@ -13,6 +13,6 @@ spec:
     name: digitalocean-dns
     creationPolicy: Owner
   data:
-    - secretKey: access-token
+    - secretKey: do-token
       remoteRef:
-        key: DigitalOceanExternalDNSDOToken
+        key: DigitalOceanZoneManagement
