@@ -4,6 +4,7 @@ metadata:
   name: letsencrypt-account-key
   namespace: cert-manager
 spec:
+  # INFO: tried to use IfNotExists, got a "set secret failed: could not verify if secret exists in store: not implemented"
   updatePolicy: Replace
   refreshInterval: 24h
   secretStoreRefs:

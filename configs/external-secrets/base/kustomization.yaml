@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - cluster-secret-store.yaml
   - do-token.yaml
+  - letsencrypt-account-key.yaml
