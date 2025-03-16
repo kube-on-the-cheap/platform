@@ -4,8 +4,6 @@ metadata:
   name: letsencrypt-account-key
   namespace: cert-manager
 spec:
-  # INFO: tried to use IfNotExists, got a "set secret failed: could not verify if secret exists in store: not implemented"
-  updatePolicy: Replace
   refreshInterval: 24h
   secretStoreRefs:
     - kind: ClusterSecretStore
@@ -14,8 +12,6 @@ spec:
     secret:
       name: letsencrypt-account-key
   data:
-    - conversionStrategy: None
-      match:
-        secretKey: tls.key
+    - match:
         remoteRef:
-          remoteKey: letsencrypt-account-key
+          remoteKey: LetsEncryptAccountKey
