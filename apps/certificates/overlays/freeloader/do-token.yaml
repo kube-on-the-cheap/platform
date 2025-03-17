@@ -5,7 +5,7 @@ metadata:
   name: digitalocean-dns
   namespace: cert-manager
 spec:
-  refreshInterval: 60m
+  refreshInterval: 12h
   secretStoreRef:
     kind: ClusterSecretStore
     name: oci-vault

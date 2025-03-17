@@ -2,16 +2,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: external-secrets
+  name: certificates
   namespace: flux-system
 spec:
   interval: 10m0s
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./configs/external-secrets/overlays/freeloader
+  path: ./apps/certificates/overlays/freeloader
   prune: true
-  wait: true
+  wait: false
   timeout: 5m0s
   dependsOn:
-    - name: external-secrets-operator
+    - name: cert-manager
