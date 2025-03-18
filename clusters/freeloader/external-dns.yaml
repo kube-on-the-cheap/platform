@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: external-dns
+  namespace: flux-system
+spec:
+  interval: 15m0s
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./apps/external-dns/overlays/freeloader
+  prune: true
+  wait: true
+  timeout: 10m0s
+  dependsOn:
+    - name: external-secrets
