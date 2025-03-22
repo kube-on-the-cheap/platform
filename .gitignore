@@ -1,6 +1,7 @@
 # Default garbage
 **/.DS_Store
 .vscode/*
+.tmp/**
 
 # Taskfile checksum ignores
 .task/checksum/**
