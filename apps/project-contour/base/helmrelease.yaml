@@ -23,4 +23,19 @@ spec:
     crds: CreateReplace
   driftDetection:
     mode: enabled
-  values: []
+  values:
+    # https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengcreatingloadbalancer_topic-Summaryofannotations.htm
+    envoy:
+      service:
+        annotations:
+          oci.oraclecloud.com/load-balancer-type: lb
+          service.beta.kubernetes.io/oci-load-balancer-ssl-ports: "443"
+          service.beta.kubernetes.io/oci-load-balancer-shape: flexible
+          service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: 10Mbps
+          oci.oraclecloud.com/ingress-ip-mode: VIP
+          service.beta.kubernetes.io/oci-load-balancer-backend-protocol: HTTPS
+          service.beta.kubernetes.io/oci-load-balancer-tls-secret: wildcard-cert
+          # service.beta.kubernetes.io/oci-load-balancer-connection-idle-timeout: 60s
+      containerPorts:
+        http: 8080
+        https: 8443
