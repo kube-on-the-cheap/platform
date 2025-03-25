@@ -1,0 +1,17 @@
+---
+provider:
+  name: digitalocean
+env:
+  - name: DO_TOKEN
+    valueFrom:
+      secretKeyRef:
+        name: do-token
+        key: do-token
+sources:
+  - service
+  - ingress
+  - contour-httpproxy
+domainFilters:
+  - cloud.blacksd.tech
+txtOwnerId: freeloader
+interval: 5m

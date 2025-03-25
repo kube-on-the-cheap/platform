@@ -4,10 +4,10 @@ kind: Kustomization
 resources:
   - ../../base
   - do-token.yaml
-patches:
-  - path: helmrelease.patch.yaml
-    target:
-      group: helm.toolkit.fluxcd.io
-      version: v2
-      kind: HelmRelease
-      name: external-dns
+configMapGenerator:
+  - name: externaldns-values
+    namespace: flux-system
+    files:
+      - values.yaml=externaldns-values.yaml
+configurations:
+  - kustomizeconfig.yaml

@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - ../../base
 patches:
-  - path: cluster-secret-store.patch.yaml
+  - path: oci-vault.patch.yaml
     target:
       group: external-secrets.io
       version: v1beta1

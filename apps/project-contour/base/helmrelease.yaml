@@ -1,0 +1,42 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: project-contour
+  namespace: flux-system
+spec:
+  interval: 60m
+  timeout: 5m
+  releaseName: project-contour
+  targetNamespace: project-contour
+  chart:
+    spec:
+      chart: contour
+      version: "19.5.8"
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+  install:
+    createNamespace: true
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
+  driftDetection:
+    mode: enabled
+  values:
+    # https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengcreatingloadbalancer_topic-Summaryofannotations.htm
+    envoy:
+      service:
+        annotations:
+          oci.oraclecloud.com/load-balancer-type: lb
+          service.beta.kubernetes.io/oci-load-balancer-ssl-ports: "443"
+          service.beta.kubernetes.io/oci-load-balancer-shape: flexible
+          service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: 10Mbps
+          service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: 10Mbps
+          oci.oraclecloud.com/ingress-ip-mode: VIP
+          service.beta.kubernetes.io/oci-load-balancer-backend-protocol: HTTP
+          service.beta.kubernetes.io/oci-load-balancer-tls-secret: wildcard-cert
+          # service.beta.kubernetes.io/oci-load-balancer-connection-idle-timeout: 60s
+      containerPorts:
+        http: 8080
+        https: 8443
