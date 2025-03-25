@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: wildcard-cert
+  namespace: project-contour
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: kube-cert-manager
+  target:
+    creationPolicy: Owner
+    template:
+      type: kubernetes.io/tls
+  dataFrom:
+    - extract:
+        key: wildcard-cert
