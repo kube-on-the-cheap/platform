@@ -10,10 +10,7 @@ env:
 sources:
   - service
   - ingress
-  - contour-ingressroute
   - contour-httpproxy
-extraArgs:
-  - --contour-load-balancer=project-contour/project-contour-envoy
 domainFilters:
   - cloud.blacksd.tech
 txtOwnerId: freeloader
