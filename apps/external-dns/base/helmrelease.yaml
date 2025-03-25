@@ -23,3 +23,6 @@ spec:
     crds: CreateReplace
   driftDetection:
     mode: enabled
+  valuesFrom:
+    - kind: ConfigMap
+      name: externaldns-values
