@@ -28,9 +28,9 @@ spec:
       name: tailscale-values
     - kind: Secret
       name: tailscale-oauth
-      valuesKey: oauth.clientId
-      targetPath: clientId
+      targetPath: oauth.clientId
+      valuesKey: clientId
     - kind: Secret
       name: tailscale-oauth
-      valuesKey: oauth.clientSecret
-      targetPath: clientSecret
+      targetPath: oauth.clientSecret
+      valuesKey: clientSecret
