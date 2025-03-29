@@ -3,7 +3,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: tailscale-oauth
-  namespace: tailscale
+  namespace: flux-system
 spec:
   refreshInterval: 12h
   secretStoreRef:
@@ -12,7 +12,6 @@ spec:
   target:
     name: tailscale-oauth
     creationPolicy: Owner
-  data:
-    - secretKey: tailscale-oauth
-      remoteRef:
+  dataFrom:
+    - extract:
         key: TailscaleOAuth
