@@ -1,0 +1,4 @@
+apiServerProxyConfig:
+  mode: "true" # "true", "false", "noauth"
+operatorConfig:
+  hostname: freeloader

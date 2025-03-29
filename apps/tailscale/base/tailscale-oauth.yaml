@@ -1,0 +1,17 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: tailscale-oauth
+  namespace: flux-system
+spec:
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: oci-vault
+  target:
+    name: tailscale-oauth
+    creationPolicy: Owner
+  dataFrom:
+    - extract:
+        key: TailscaleOAuth
