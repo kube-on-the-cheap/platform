@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - helmrepository.yaml
   - helmrelease.yaml
+  - namespace.yaml
+  - tailscale-oauth.yaml
 configMapGenerator:
   - name: tailscale-values
     namespace: flux-system
