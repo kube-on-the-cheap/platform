@@ -15,16 +15,6 @@ destinations:
       username: "1173472"
 clusterMetrics:
   enabled: true
-  opencost:
-    enabled: true
-    metricsSource: grafana-cloud-metrics
-    opencost:
-      exporter:
-        defaultClusterId: freeloader
-      prometheus:
-        existingSecretName: grafana-cloud-metrics-alloy
-        external:
-          url: https://prometheus-prod-24-prod-eu-west-2.grafana.net/api/prom
 annotationAutodiscovery:
   enabled: true
 prometheusOperatorObjects:
