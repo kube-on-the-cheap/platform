@@ -21,8 +21,10 @@ prometheusOperatorObjects:
   enabled: true
 clusterEvents:
   enabled: true
+# TODO: investigate why OCI doesn't play nice with Alloy
+#       see https://github.com/grafana/k8s-monitoring-helm/issues/1042
 nodeLogs:
-  enabled: true
+  enabled: false
 podLogs:
   enabled: true
 integrations:
