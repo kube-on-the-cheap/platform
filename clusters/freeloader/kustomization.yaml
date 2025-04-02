@@ -8,3 +8,4 @@ resources:
   - external-dns.yaml
   - project-contour.yaml
   - tailscale.yaml
+  - grafana.yaml
