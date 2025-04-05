@@ -1,3 +1,6 @@
+global:
+  scrapeInterval: 90s
+
 cluster:
   name: freeloader
 destinations:
@@ -13,8 +16,13 @@ destinations:
     auth:
       type: basic
       username: "1173472"
+
+# https://github.com/grafana/k8s-monitoring-helm/blob/main/charts/k8s-monitoring/charts/feature-cluster-metrics/values.yaml
 clusterMetrics:
   enabled: true
+  metricsTuning:
+    excludeMetrics:
+      - alloy_component_dependencies_wait_seconds_bucket
 annotationAutodiscovery:
   enabled: true
 prometheusOperatorObjects:
@@ -36,6 +44,7 @@ integrations:
             - alloy-metrics
             - alloy-singleton
             - alloy-logs
+# TODO: drop some Alloy internal metrics
 alloy-metrics:
   enabled: true
 alloy-singleton:
