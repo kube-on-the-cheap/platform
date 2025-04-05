@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+configMapGenerator:
+  - name: argo-cd-values
+    namespace: flux-system
+    files:
+      - values.yaml=argo-cd-values.yaml
+configurations:
+  - kustomizeconfig.yaml

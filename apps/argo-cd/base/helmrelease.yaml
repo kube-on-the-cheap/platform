@@ -2,22 +2,22 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: external-dns
+  name: argo-cd
   namespace: flux-system
 spec:
   interval: 30m
   timeout: 5m
-  releaseName: external-dns
-  targetNamespace: external-dns
+  releaseName: argo-cd
+  targetNamespace: argo-cd
   chart:
     spec:
-      chart: external-dns
-      version: "~1.16"
+      chart: argo-cd
+      version: "~7.8"
       sourceRef:
         kind: HelmRepository
-        name: external-dns
+        name: argo
   install:
-    # createNamespace: true
+    createNamespace: true
     crds: CreateReplace
   upgrade:
     crds: CreateReplace
@@ -25,4 +25,4 @@ spec:
     mode: enabled
   valuesFrom:
     - kind: ConfigMap
-      name: externaldns-values
+      name: argo-cd-values

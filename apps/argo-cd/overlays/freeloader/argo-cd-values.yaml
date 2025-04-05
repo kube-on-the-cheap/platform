@@ -1,0 +1,15 @@
+global:
+  domain: argocd.cloud.blacksd.tech
+
+configs:
+  params:
+    server.insecure: false
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: contour
+    extraTls:
+      - hosts:
+          - argocd.cloud.blacksd.tech
+        secretName: wildcard-cert
