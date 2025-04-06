@@ -4,3 +4,10 @@ resources:
   - helmrepository.yaml
   - helmrelease.yaml
   - wildcard-cert.yaml
+configMapGenerator:
+  - name: project-contour-values
+    namespace: flux-system
+    files:
+      - values.yaml=project-contour-values.yaml
+configurations:
+  - kustomizeconfig.yaml
