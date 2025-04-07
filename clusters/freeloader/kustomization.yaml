@@ -10,3 +10,4 @@ resources:
   - tailscale.yaml
   - grafana.yaml
   - argo-cd.yaml
+  - podinfo.yaml
