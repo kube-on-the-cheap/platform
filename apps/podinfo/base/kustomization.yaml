@@ -4,3 +4,4 @@ resources:
   - helmrepository.yaml
   - helmrelease.yaml
   - namespace.yaml
+  - wildcard-cert.yaml

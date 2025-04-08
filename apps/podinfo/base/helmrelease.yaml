@@ -27,6 +27,10 @@ spec:
     ingress:
       enabled: true
       className: contour
+      tls:
+        - secretName: wildcard-cert
+          hosts:
+            - podinfo.cloud.blacksd.tech
       hosts:
         - host: podinfo.cloud.blacksd.tech
           paths:
