@@ -1,0 +1,18 @@
+global:
+  domain: argocd.cloud.blacksd.tech
+
+configs:
+  cm:
+    statusbadge.enabled: true
+
+server:
+  service:
+    annotations:
+      projectcontour.io/upstream-protocol.tls: "443" # Flag Contour that we'll be using HTTPS in the upstream service
+  ingress:
+    enabled: true
+    ingressClassName: contour
+    extraTls:
+      - hosts:
+          - argocd.cloud.blacksd.tech
+        secretName: wildcard-cert

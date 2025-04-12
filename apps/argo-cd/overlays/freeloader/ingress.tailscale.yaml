@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-tailscale
+  namespace: argo-cd
+spec:
+  tls:
+    - hosts:
+        - argocd.bat-corn.ts.net
+  ingressClassName: tailscale
+  defaultBackend:
+    service:
+      name: argo-cd-argocd-server
+      port:
+        number: 443
