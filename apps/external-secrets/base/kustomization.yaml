@@ -4,3 +4,4 @@ resources:
   - oci-vault.yaml
   - kube-cert-manager.yaml
   - letsencrypt-account-key.yaml
+  - wildcard-cert-cluster-sync.yaml
