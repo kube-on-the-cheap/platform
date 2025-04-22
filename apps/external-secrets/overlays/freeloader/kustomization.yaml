@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ../../base
   - oci-vault-oke.yaml
+  - oci-vault-s3.yaml
