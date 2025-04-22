@@ -17,7 +17,7 @@ spec:
         kind: HelmRepository
         name: vmware-tanzu
   install:
-    createNamespace: true
+    # createNamespace: true
     crds: CreateReplace
   upgrade:
     crds: CreateReplace

@@ -2,19 +2,20 @@
 configuration:
   volumeSnapshotLocation: []
   backupStorageLocation:
-    - name: oracle-cloud-bucket
+    - name: oci-bucket
       provider: aws
       bucket: velero
-      prefix: blacksd
+      prefix: freeloader-backups
       default: true
       validationFrequency: 24h
       accessMode: ReadWrite
       config:
         region: eu-frankfurt-1
-        s3Url: https://blacksd.compat.objectstorage.eu-frankfurt-1.oraclecloud.com
+        s3Url: https://froaw0vigiem.compat.objectstorage.eu-frankfurt-1.oraclecloud.com
         s3ForcePathStyle: true
 credentials:
-  useSecret: false
+  useSecret: true
+  name: s3-credentials-velero
 initContainers:
   - name: velero-plugin-for-aws
     image: velero/velero-plugin-for-aws:v1.12.0
