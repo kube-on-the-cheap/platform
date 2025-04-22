@@ -1,0 +1,12 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: oci-vault-s3
+spec:
+  provider:
+    oracle:
+      compartment: ocid1.compartment.oc1..aaaaaaaacbbpygy5veugjcwkjmzpncdsb7rglaewim67a3jzvgtlmo23v7dq
+      encryptionKey: ocid1.key.oc1.eu-frankfurt-1.enual37iaadoe.abtheljrg4lb74ihxnx3rnzptafercy4fex7vpgjwwputwkhttz33qkxsk6a
+      principalType: InstancePrincipal
+      region: eu-frankfurt-1
+      vault: ocid1.vault.oc1.eu-frankfurt-1.enual37iaadoe.abtheljrbljiks4ugayaepuomtgcsgehnqmozyez4fm2yy2l7kuip23pks2a

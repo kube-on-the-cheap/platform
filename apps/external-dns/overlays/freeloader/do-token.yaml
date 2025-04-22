@@ -8,7 +8,7 @@ spec:
   refreshInterval: 12h
   secretStoreRef:
     kind: ClusterSecretStore
-    name: oci-vault
+    name: oci-vault-oke
   target:
     name: do-token
     creationPolicy: Owner
