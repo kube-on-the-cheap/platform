@@ -25,3 +25,15 @@ initContainers:
     volumeMounts:
       - mountPath: /target
         name: plugins
+schedules:
+  cluster-backup:
+    disabled: false
+    schedule: 30 6 * * *
+    useOwnerReferencesInBackup: true
+    template:
+      ttl: 1080h # 45d
+      storageLocation: oci-bucket
+      includedNamespaces:
+        - "*"
+      includedResources:
+        - "*"

@@ -516,6 +516,54 @@
           "store_path": "/nix/store/ibhipb63nbk0g5xdyis0rrdkz2gq0m3h-python3.12-ruamel-yaml-0.18.10"
         }
       }
+    },
+    "velero@1.15.2": {
+      "last_modified": "2025-03-11T17:52:14Z",
+      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#velero",
+      "source": "devbox-search",
+      "version": "1.15.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/c1pijmf1gs5y5gv4qbpi6xsimsazr2kn-velero-1.15.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/c1pijmf1gs5y5gv4qbpi6xsimsazr2kn-velero-1.15.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/5lw2bvcjvg3yvv3dd20j43ls5yg8q1x5-velero-1.15.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/5lw2bvcjvg3yvv3dd20j43ls5yg8q1x5-velero-1.15.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zal4bhgq8900f61hfwm19q304fj1klij-velero-1.15.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/zal4bhgq8900f61hfwm19q304fj1klij-velero-1.15.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/i09vh3gq0kjiymqa2grs9xfhggkxibfl-velero-1.15.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/i09vh3gq0kjiymqa2grs9xfhggkxibfl-velero-1.15.2"
+        }
+      }
     }
   }
 }
