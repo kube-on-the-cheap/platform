@@ -1,4 +1,5 @@
 ---
+snapshotsEnabled: false
 configuration:
   volumeSnapshotLocation: []
   backupStorageLocation:
@@ -10,7 +11,7 @@ configuration:
       validationFrequency: 24h
       accessMode: ReadWrite
       config:
-        # TODO: region and s3Url should be a param derived by in-cluster secrets
+        # TODO: region and s3Url should be a param derived by in-cluster secrets. Perhaps with a downwardAPI?
         region: eu-frankfurt-1
         s3Url: https://froaw0vigiem.compat.objectstorage.eu-frankfurt-1.oraclecloud.com
         s3ForcePathStyle: true
@@ -19,7 +20,8 @@ credentials:
   name: s3-credentials-velero
 initContainers:
   - name: velero-plugin-for-aws
-    image: velero/velero-plugin-for-aws:v1.12.0
+    # NOTE: Oracle doesn't support AWS SDK 2.0 https://github.com/vmware-tanzu/velero/issues/8013 forcing us to stay <1.9
+    image: velero/velero-plugin-for-aws:v1.8.0
     volumeMounts:
       - mountPath: /target
         name: plugins
