@@ -1,7 +1,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ClusterSecretStore
 metadata:
-  name: oci-vault
+  name: oci-vault-oke
 spec:
   provider:
     oracle:

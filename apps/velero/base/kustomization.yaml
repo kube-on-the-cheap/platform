@@ -1,6 +1,7 @@
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../../base
-  - oci-vault-oke.yaml
-  - oci-vault-s3.yaml
+  - helmrepository.yaml
+  - helmrelease.yaml
+  - namespace.yaml

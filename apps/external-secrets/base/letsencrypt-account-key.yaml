@@ -7,7 +7,7 @@ spec:
   refreshInterval: 24h
   secretStoreRefs:
     - kind: ClusterSecretStore
-      name: oci-vault
+      name: oci-vault-oke
   selector:
     secret:
       name: letsencrypt-account-key

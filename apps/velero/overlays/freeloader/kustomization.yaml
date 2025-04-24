@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+  - s3-credentials-velero-sync.yaml
+configMapGenerator:
+  - name: velero-values
+    namespace: flux-system
+    files:
+      - values.yaml=velero-values.yaml
+configurations:
+  - kustomizeconfig.yaml
