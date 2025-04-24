@@ -4,3 +4,4 @@ resources:
   - kube-cert-manager.yaml
   - letsencrypt-account-key.yaml
   - wildcard-cert-cluster-sync.yaml
+  - do-token-cluster-sync.yaml

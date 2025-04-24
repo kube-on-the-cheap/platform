@@ -9,3 +9,12 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-account-key
+    solvers:
+      - selector:
+          dnsZones:
+            - "cloud.blacksd.tech"
+        dns01:
+          digitalocean:
+            tokenSecretRef:
+              name: do-token
+              key: do-token

@@ -1,28 +1,27 @@
+---
 apiVersion: external-secrets.io/v1beta1
 kind: ClusterExternalSecret
 metadata:
-  name: wildcard-cert-cluster-sync
+  name: do-token-cluster-sync
 spec:
-  externalSecretName: wildcard-cert-sync
+  externalSecretName: do-token
   refreshTime: 60m
   namespaceSelector:
     matchExpressions:
       - key: kubernetes.io/metadata.name
         operator: In
         values:
-          - podinfo
-          - argo-cd
-          - project-contour
+          - cert-manager
+          - external-dns
   externalSecretSpec:
     refreshInterval: 12h
     secretStoreRef:
       kind: ClusterSecretStore
-      name: kube-cert-manager
+      name: oci-vault-oke
     target:
-      name: wildcard-cert
+      name: do-token
       creationPolicy: Owner
-      template:
-        type: kubernetes.io/tls
-    dataFrom:
-      - extract:
-          key: wildcard-cert
+    data:
+      - secretKey: do-token
+        remoteRef:
+          key: DigitalOceanZoneManagement
