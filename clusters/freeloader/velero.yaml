@@ -13,3 +13,5 @@ spec:
   prune: true
   wait: true
   timeout: 10m0s
+  dependsOn:
+    - name: external-secrets
