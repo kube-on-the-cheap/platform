@@ -1,0 +1,25 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterExternalSecret
+metadata:
+  name: sender-smtp-credentials-cluster-sync
+spec:
+  externalSecretName: sender-smtp-credentials-sync
+  refreshTime: 60m
+  namespaceSelector:
+    matchExpressions:
+      - key: kubernetes.io/metadata.name
+        operator: In
+        values:
+          - argo-cd
+  externalSecretSpec:
+    refreshInterval: 12h
+    secretStoreRef:
+      kind: ClusterSecretStore
+      name: oci-vault-email
+    target:
+      name: sender-smtp-credentials
+      creationPolicy: Owner
+    dataFrom:
+      - extract:
+          key: EmailCredentialsSender
+          property: smtp

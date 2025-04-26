@@ -1,0 +1,13 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: oci-vault-email
+spec:
+  provider:
+    oracle:
+      compartment: ocid1.compartment.oc1..aaaaaaaahcmlv7mj6ni6nkoenmvssonmmutdzuxrb76a5mb7j3hlct4kwsia
+      encryptionKey: ocid1.key.oc1.eu-frankfurt-1.enuazk5aaafgo.abtheljrrv2yigltzd62shqij5orgngysmr5qk53tkxilpy2yqd2ar7dewma
+      principalType: InstancePrincipal
+      region: eu-frankfurt-1
+      vault: ocid1.vault.oc1.eu-frankfurt-1.enuazk5aaafgo.abtheljss74lwgj6gzpc74nm72nox2y66bphhyweu2hjwkt2utoefawq6m7a

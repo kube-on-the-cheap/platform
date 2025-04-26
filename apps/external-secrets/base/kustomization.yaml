@@ -5,3 +5,4 @@ resources:
   - letsencrypt-account-key.yaml
   - wildcard-cert-cluster-sync.yaml
   - do-token-cluster-sync.yaml
+  - sender-smtp-cluster-sync.yaml
