@@ -11,4 +11,5 @@ resources:
   - grafana.yaml
   - argo-cd.yaml
   - velero.yaml
+  - cloudnative-pg.yaml
   # - podinfo.yaml
