@@ -34,3 +34,27 @@ spec:
       name: alloy-token
       targetPath: destinations[1].auth.password
       valuesKey: alloy-token
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: prometheus-crd
+  namespace: flux-system
+spec:
+  interval: 30m
+  timeout: 5m
+  targetNamespace: grafana
+  install:
+    # createNamespace: true
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
+  driftDetection:
+    mode: enabled
+  chart:
+    spec:
+      chart: prometheus-operator-crds
+      version: "~20.0"
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
