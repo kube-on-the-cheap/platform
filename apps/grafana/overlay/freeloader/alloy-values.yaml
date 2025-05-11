@@ -28,6 +28,8 @@ annotationAutodiscovery:
   enabled: true
 prometheusOperatorObjects:
   enabled: true
+  crds:
+    deploy: true
 clusterEvents:
   enabled: true
 # NOTE: OCI natively doesn't play nice with Alloy; local log pesistence needs to be enabled
@@ -39,12 +41,16 @@ podLogs:
 integrations:
   alloy:
     instances:
+      - name: alloy-metrics
+        labelSelectors:
+          app.kubernetes.io/name: alloy-metrics
       - name: alloy
         labelSelectors:
-          app.kubernetes.io/name:
-            - alloy-metrics
-            - alloy-singleton
-            - alloy-logs
+          app.kubernetes.io/name: [alloy-logs, alloy-singleton]
+        metrics:
+          tuning:
+            useDefaultAllowList: false
+            includedMetrics: [alloy_build_info]
 # TODO: drop some Alloy internal metrics
 alloy-metrics:
   enabled: true

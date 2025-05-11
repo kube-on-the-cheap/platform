@@ -1,2 +1,4 @@
 file://*
 https://stefanprodan.github.io/podinfo
+https://prometheus-*.grafana.net/api/prom/push
+https://logs-*.grafana.net/loki/api/v1/push
