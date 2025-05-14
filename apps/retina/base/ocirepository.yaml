@@ -1,0 +1,14 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: retina
+  namespace: flux-system
+spec:
+  interval: 5m
+  url: oci://ghcr.io/microsoft/retina/charts/retina
+  ref:
+    tag: "v0.0.33"
+  # layerSelector:
+  #   mediaType: "application/vnd.cncf.helm.chart.content.v1.tar+gzip"
+  #   operation: copy
