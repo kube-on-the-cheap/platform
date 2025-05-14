@@ -1,0 +1,35 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: retina
+  namespace: flux-system
+spec:
+  releaseName: retina
+  chart:
+    spec:
+      chart: retina
+      version: "~>6.8"
+      sourceRef:
+        kind: OCIRepository
+        name: retina
+  interval: 15m
+  install:
+    # createNamespace: true
+    crds: CreateReplace
+    remediation:
+      retries: 2
+  upgrade:
+    crds: CreateReplace
+  driftDetection:
+    mode: enabled
+  values:
+    logLevel: info
+    enabledPlugin_linux:
+      - dropreason
+      - packetforward
+      - linuxutil
+      - dns
+    operator:
+      enabled: true
+      enableRetinaEndpoint: true
