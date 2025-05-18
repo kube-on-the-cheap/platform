@@ -32,6 +32,10 @@ clusterMetrics:
 
 annotationAutodiscovery:
   enabled: true
+  annotations:
+    scrape: prometheus.io/scrape
+    metricsPath: prometheus.io/path
+    metricsPortNumber: prometheus.io/port
 
 # INFO: https://github.com/grafana/k8s-monitoring-helm/tree/main/charts/k8s-monitoring/charts/feature-prometheus-operator-objects
 prometheusOperatorObjects:
