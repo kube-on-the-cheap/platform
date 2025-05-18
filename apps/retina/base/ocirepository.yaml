@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  url: oci://ghcr.io/microsoft/retina/charts/retina
+  url: oci://ghcr.io/microsoft/retina/charts/retina-hubble
   ref:
     tag: "v0.0.33"
   # layerSelector:

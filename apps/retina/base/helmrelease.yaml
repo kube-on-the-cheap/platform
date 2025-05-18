@@ -21,11 +21,31 @@ spec:
   driftDetection:
     mode: enabled
   values:
-    image:
-      tag: v0.0.33
-    logLevel: info
-    enabledPlugin_linux: "[dropreason,packetforward,linuxutil,dns]"
+    os:
+      windows: false
+    # image:
+    #   tag: v0.0.33
     operator:
       tag: 1e26c4d # arm64 version just recently introduced https://github.com/microsoft/retina/issues/1582
       enabled: true
-      enableRetinaEndpoint: true
+    agent:
+      enabled: true
+      repository: ghcr.io/microsoft/retina/retina-agent
+      tag: v0.0.33
+      init:
+        enabled: true
+        repository: ghcr.io/microsoft/retina/retina-init
+        tag: v0.0.33
+    logLevel: info
+    hubble:
+      tls:
+        enabled: false
+        auto:
+          enabled: false
+          method: cronJob
+          certValidityDuration: 1
+          schedule: "*/10 * * * *"
+      relay:
+        tls:
+          server:
+            enabled: false

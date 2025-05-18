@@ -1,0 +1,65 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alloy-metrics-tailscale
+  namespace: grafana
+spec:
+  tls:
+    - hosts:
+        - alloy-metrics.bat-corn.ts.net
+  ingressClassName: tailscale
+  rules:
+    - host: alloy-metrics.bat-corn.ts.net
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: alloy-alloy-metrics
+                port:
+                  name: http-metrics
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alloy-logs-tailscale
+  namespace: grafana
+spec:
+  tls:
+    - hosts:
+        - alloy-logs.bat-corn.ts.net
+  ingressClassName: tailscale
+  rules:
+    - host: alloy-logs.bat-corn.ts.net
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: alloy-alloy-logs
+                port:
+                  name: http-metrics
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alloy-singleton-tailscale
+  namespace: grafana
+spec:
+  tls:
+    - hosts:
+        - alloy-singleton.bat-corn.ts.net
+  ingressClassName: tailscale
+  rules:
+    - host: alloy-singleton.bat-corn.ts.net
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: alloy-alloy-singleton
+                port:
+                  name: http-metrics
