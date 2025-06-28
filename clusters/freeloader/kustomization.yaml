@@ -13,4 +13,5 @@ resources:
   - velero.yaml
   - cloudnative-pg.yaml
   - retina.yaml
+  - longhorn.yaml
   # - podinfo.yaml
