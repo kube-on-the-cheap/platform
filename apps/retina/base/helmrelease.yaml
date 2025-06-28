@@ -1,0 +1,35 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: retina
+  namespace: flux-system
+spec:
+  releaseName: retina
+  targetNamespace: retina
+  chartRef:
+    kind: OCIRepository
+    name: retina
+  interval: 15m
+  install:
+    createNamespace: true
+    # crds: CreateReplace
+    remediation:
+      retries: 2
+  # upgrade:
+  #   crds: CreateReplace
+  driftDetection:
+    mode: enabled
+  values:
+    os:
+      windows: false
+    image:
+      tag: v0.0.33
+    logLevel: info
+    enablePodLevel: true
+    enableAnnotations: true
+    enabledPlugin_linux: "[dropreason,packetforward,linuxutil,dns,packetparser]"
+    operator:
+      tag: 1e26c4d # arm64 version just recently introduced https://github.com/microsoft/retina/issues/1582
+      enabled: true
+      enableRetinaEndpoint: true
