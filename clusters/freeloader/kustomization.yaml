@@ -12,6 +12,6 @@ resources:
   - argo-cd.yaml
   - velero.yaml
   - cloudnative-pg.yaml
-  - retina.yaml
-  - longhorn.yaml
+  # - retina.yaml
+  # - longhorn.yaml
   # - podinfo.yaml
