@@ -9,7 +9,7 @@ resources:
   - project-contour.yaml
   - tailscale.yaml
   - grafana.yaml
-  - argo-cd.yaml
+  # - argo-cd.yaml
   - velero.yaml
   - cloudnative-pg.yaml
   # - retina.yaml
