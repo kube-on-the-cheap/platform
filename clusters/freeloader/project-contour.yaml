@@ -8,7 +8,7 @@ spec:
   interval: 15m0s
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: platform
   path: ./apps/project-contour/base
   prune: true
   wait: true
