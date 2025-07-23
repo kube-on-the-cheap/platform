@@ -1,0 +1,18 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: apps
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  timeout: 60s
+  url: https://github.com/kube-on-the-cheap/apps
+  # TODO: having commit verification would be nice
+  #
+  # verify:
+  #   mode: HEAD
+  #   secretRef:
+  #     name: pgp-public-keys
