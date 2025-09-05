@@ -48,7 +48,7 @@ repos:
       - id: conventional-pre-commit
         stages:
           - commit-msg
-        args: [feat, fix, update, chore, test, docs, nit]
+        args: [feat, fix, update, chore, test, docs, nit, wip]
 
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.24.0
