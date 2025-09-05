@@ -23,14 +23,14 @@ spec:
     crds: CreateReplace
   driftDetection:
     mode: enabled
-  valuesFrom:
-    - kind: ConfigMap
-      name: tailscale-values
-    - kind: Secret
-      name: tailscale-oauth
-      targetPath: oauth.clientId
-      valuesKey: clientId
-    - kind: Secret
-      name: tailscale-oauth
-      targetPath: oauth.clientSecret
-      valuesKey: clientSecret
+  # valuesFrom:
+  #   - kind: ConfigMap
+  #     name: tailscale-values
+  #   - kind: Secret
+  #     name: tailscale-oauth
+  #     targetPath: oauth.clientId
+  #     valuesKey: clientId
+  #   - kind: Secret
+  #     name: tailscale-oauth
+  #     targetPath: oauth.clientSecret
+  #     valuesKey: clientSecret
