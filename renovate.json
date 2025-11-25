@@ -1,0 +1,96 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "ignorePaths": [],
+  "flux": {
+    "fileMatch": [
+      "(^|/)apps/.+/base/helmrelease\\.ya?ml$",
+      "(^|/)apps/.+/overlays/.+/helmrelease\\.ya?ml$",
+      "(^|/)clusters/.+\\.ya?ml$"
+    ]
+  },
+  "helm-values": {
+    "fileMatch": [
+      "(^|/)apps/.+/base/helmrelease\\.ya?ml$",
+      "(^|/)apps/.+/overlays/.+/helmrelease\\.ya?ml$"
+    ]
+  },
+  "kubernetes": {
+    "fileMatch": [
+      "(^|/)\\.?kustomization\\.ya?ml$",
+      "(^|/)apps/.+\\.ya?ml$",
+      "(^|/)clusters/.+\\.ya?ml$"
+    ]
+  },
+  "packageRules": [
+    {
+      "description": "Group Flux HelmRelease chart updates by app",
+      "matchDatasources": ["helm"],
+      "matchFileNames": ["apps/**"],
+      "groupName": "helm-charts",
+      "commitMessageTopic": "{{depName}} Helm chart",
+      "separateMinorPatch": true
+    },
+    {
+      "description": "Group Docker image updates in HelmRelease values",
+      "matchDatasources": ["docker"],
+      "matchFileNames": ["apps/**"],
+      "groupName": "container-images",
+      "commitMessageTopic": "{{depName}} container image"
+    },
+    {
+      "description": "Auto-merge patch updates for Helm charts",
+      "matchDatasources": ["helm"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Separate major updates for review",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true,
+      "commitMessagePrefix": "MAJOR: "
+    }
+  ],
+  "regexManagers": [
+    {
+      "description": "Update container images in HelmRelease values",
+      "fileMatch": [
+        "(^|/)apps/.+/base/helmrelease\\.ya?ml$",
+        "(^|/)apps/.+/overlays/.+/helmrelease\\.ya?ml$"
+      ],
+      "matchStrings": [
+        "repository:\\s*(?<depName>[^\\s]+)\\s+tag:\\s*[\"']?(?<currentValue>[^\\s\"']+)[\"']?",
+        "image:\\s*(?<depName>[^:]+):(?<currentValue>[^\\s]+)"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Update Flux Kustomization images",
+      "fileMatch": [
+        "(^|/)\\.?kustomization\\.ya?ml$"
+      ],
+      "matchStrings": [
+        "newName:\\s*(?<depName>[^\\s]+)\\s+newTag:\\s*[\"']?(?<currentValue>[^\\s\"']+)[\"']?"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 5,
+  "branchPrefix": "renovate/",
+  "commitMessagePrefix": "chore(deps):",
+  "semanticCommits": "enabled",
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Dependency Dashboard",
+  "rebaseWhen": "behind-base-branch",
+  "separateMajorMinor": true,
+  "separateMultipleMajor": true,
+  "schedule": [
+    "after 10pm every weekday",
+    "before 5am every weekday",
+    "every weekend"
+  ]
+}
