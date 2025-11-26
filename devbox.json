@@ -7,7 +7,7 @@
     "kubernetes-helm-wrapped@3.17.1",
     "lychee@0.18.1",
     "pre-commit@4.0.1",
-    "kustomize@5.6.0",
+    "kustomize@5.8.0",
     "python312Packages.ruamel-yaml@latest",
     "k9s@0.50.6",
     "velero@1.15.2",
