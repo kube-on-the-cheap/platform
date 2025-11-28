@@ -1,0 +1,30 @@
+crds:
+  gatewayAPI:
+    enabled: true
+    channel: standard
+  envoyGateway:
+    enabled: true
+deployment:
+  envoyGateway:
+    resources:
+      limits:
+        cpu: 500m
+        memory: 256Mi
+      requests:
+        cpu: 100m
+        memory: 64Mi
+config:
+  envoyGateway:
+    provider:
+      kubernetes:
+        enableIngress: true
+    extensionApis:
+      enableBackend: true
+      enableEnvoyPatchPolicy: true
+    telemetry:
+      metrics:
+        prometheus:
+          disable: false
+    logging:
+      level:
+        default: info

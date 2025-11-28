@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - helmrepository.yaml
+  - helmrelease.yaml
+configMapGenerator:
+  - name: envoy-gateway-values
+    namespace: flux-system
+    files:
+      - values.yaml=envoy-gateway-values.yaml
+configurations:
+  - kustomizeconfig.yaml
