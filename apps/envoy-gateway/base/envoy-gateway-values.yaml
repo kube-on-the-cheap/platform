@@ -15,6 +15,9 @@ deployment:
         memory: 64Mi
 config:
   envoyGateway:
+    provider:
+      kubernetes:
+        enableIngress: true
     extensionApis:
       enableBackend: true
       enableEnvoyPatchPolicy: true
