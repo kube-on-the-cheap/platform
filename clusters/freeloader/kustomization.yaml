@@ -11,7 +11,7 @@ resources:
   - tailscale.yaml
   # - grafana.yaml
   # - argo-cd.yaml
-  - velero.yaml
+  # - velero.yaml
   - cloudnative-pg.yaml
   # - retina.yaml
   # - longhorn.yaml
