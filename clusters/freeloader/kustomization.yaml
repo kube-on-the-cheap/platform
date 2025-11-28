@@ -6,7 +6,8 @@ resources:
   - external-secrets-operator.yaml
   - external-secrets.yaml
   - external-dns.yaml
-  - project-contour.yaml
+  # - project-contour.yaml
+  - envoy-gateway.yaml
   - tailscale.yaml
   # - grafana.yaml
   # - argo-cd.yaml
