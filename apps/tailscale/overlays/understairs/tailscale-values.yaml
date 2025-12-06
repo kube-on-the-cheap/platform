@@ -1,0 +1,18 @@
+apiServerProxyConfig:
+  mode: "true" # "true", "false", "noauth"
+operatorConfig:
+  defaultTags:
+    - tag:k8s-operator
+  hostname: understairs
+  nodeSelector:
+    node-role.kubernetes.io/control-plane: ""
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: node-role.kubernetes.io/control-plane
+                operator: Exists
+proxyConfig:
+  defaultTags: tag:onprem
+  defaultProxyClass: control-plane

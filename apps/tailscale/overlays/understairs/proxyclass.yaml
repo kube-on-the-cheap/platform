@@ -1,0 +1,16 @@
+apiVersion: tailscale.com/v1alpha1
+kind: ProxyClass
+metadata:
+  name: control-plane
+spec:
+  statefulSet:
+    pod:
+      nodeSelector:
+        node-role.kubernetes.io/control-plane: ""
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-role.kubernetes.io/control-plane
+                    operator: Exists
