@@ -2,8 +2,11 @@ apiServerProxyConfig:
   mode: "true" # "true", "false", "noauth"
 operatorConfig:
   hostname: freeloader
+  defaultTags:
+    - tag:k8s-operator
   image:
     repository: ghcr.io/tailscale/k8s-operator
 proxyConfig:
+  defaultTags: tag:onprem
   image:
     repository: ghcr.io/tailscale/tailscale

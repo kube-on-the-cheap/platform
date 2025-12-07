@@ -1,9 +1,11 @@
 apiServerProxyConfig:
   mode: "true" # "true", "false", "noauth"
 operatorConfig:
+  hostname: understairs
   defaultTags:
     - tag:k8s-operator
-  hostname: understairs
+  image:
+    repository: ghcr.io/tailscale/k8s-operator
   nodeSelector:
     node-role.kubernetes.io/control-plane: ""
   affinity:
@@ -14,5 +16,7 @@ operatorConfig:
               - key: node-role.kubernetes.io/control-plane
                 operator: Exists
 proxyConfig:
-  defaultTags: tag:onprem
+  defaultTags: tag:onprem,tag:k8s
   defaultProxyClass: control-plane
+  image:
+    repository: ghcr.io/tailscale/tailscale
