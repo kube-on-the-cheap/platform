@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 15m
-  path: ./apps/local-volume-provisioner/base
+  path: ./apps/local-path-provisioner/base
   prune: true
   sourceRef:
     kind: GitRepository
