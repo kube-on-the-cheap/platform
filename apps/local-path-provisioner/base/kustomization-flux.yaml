@@ -1,0 +1,18 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: local-path-provisioner
+  namespace: flux-system
+spec:
+  interval: 30m
+  timeout: 5m
+  prune: false
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: local-path-provisioner
+  path: ./deploy
+  images:
+    - name: rancher/local-path-provisioner
+      newName: docker.io/rancher/local-path-provisioner

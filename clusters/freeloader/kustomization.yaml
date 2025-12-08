@@ -13,7 +13,7 @@ resources:
   # - argo-cd.yaml
   # - velero.yaml
   - cloudnative-pg.yaml
-  - local-volume-provisioner.yaml
+  - local-path-provisioner.yaml
   # - retina.yaml
   # - longhorn.yaml
   # - podinfo.yaml
