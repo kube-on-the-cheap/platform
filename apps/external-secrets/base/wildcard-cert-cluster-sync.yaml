@@ -10,9 +10,9 @@ spec:
       - key: kubernetes.io/metadata.name
         operator: In
         values:
-          - podinfo
-          - argo-cd
-          - project-contour
+          # - podinfo
+          # - argo-cd
+          - envoy-gateway-system
   externalSecretSpec:
     refreshInterval: 12h
     secretStoreRef:
