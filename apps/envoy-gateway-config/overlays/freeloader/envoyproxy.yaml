@@ -1,0 +1,22 @@
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: oci-loadbalancer
+  namespace: envoy-gateway-system
+spec:
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyService:
+        type: LoadBalancer
+        annotations:
+          oci.oraclecloud.com/load-balancer-type: lb
+          service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: 10Mbps
+          service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: 10Mbps
+          service.beta.kubernetes.io/oci-load-balancer-shape: flexible
+          service.beta.kubernetes.io/oci-load-balancer-ssl-ports: "443"
+          oci.oraclecloud.com/oci-load-balancer-listener-ssl-config: '{"CipherSuiteName":"oci-default-http2-tls-12-13-ssl-cipher-suite-v1", "Protocols":["TLSv1.3"]}'
+          oci.oraclecloud.com/security-rule-management-mode: NSG
+          oci.oraclecloud.com/oci-network-security-group: ocid1.networksecuritygroup.oc1.eu-frankfurt-1.aaaaaaaafrdfn54r6aeb3hqpsl7ob2ggffqazvnum3ort73h5ytf4h7zg6fa
+          oci.oraclecloud.com/ingress-ip-mode: VIP
