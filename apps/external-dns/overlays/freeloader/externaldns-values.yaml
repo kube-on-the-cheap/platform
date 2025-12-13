@@ -10,7 +10,11 @@ env:
 sources:
   - service
   - ingress
-  - contour-httpproxy
+  - gateway-httproute
+  - gateway-grpcroute
+  - gateway-tcproute
+  - gateway-tlsroute
+  - gateway-udproute
 domainFilters:
   - cloud.blacksd.tech
 txtOwnerId: freeloader
