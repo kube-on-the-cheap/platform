@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 15m
   path: ./apps/local-path-provisioner/base
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: platform
