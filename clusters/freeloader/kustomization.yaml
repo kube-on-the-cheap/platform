@@ -8,6 +8,7 @@ resources:
   - external-dns.yaml
   # - project-contour.yaml
   - envoy-gateway.yaml
+  - envoy-gateway-config.yaml
   - tailscale.yaml
   # - grafana.yaml
   # - argo-cd.yaml
