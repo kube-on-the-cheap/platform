@@ -4,5 +4,6 @@ resources:
   - ../../base
   - envoyproxy.yaml
   - gatewayclass.yaml
+  - client-traffic-policy.yaml
 patches:
   - path: gateway-patch.yaml

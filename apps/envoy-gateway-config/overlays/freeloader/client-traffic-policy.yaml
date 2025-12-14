@@ -1,0 +1,17 @@
+---
+# Enable client IP detection from X-Real-IP header
+# OCI Application Load Balancer (type: lb) sets X-Real-IP to the original client IP
+# This is simpler and more reliable than parsing XFF
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: ClientTrafficPolicy
+metadata:
+  name: preserve-client-ip
+  namespace: envoy-gateway-system
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: external
+  clientIPDetection:
+    customHeader:
+      name: X-Real-IP
