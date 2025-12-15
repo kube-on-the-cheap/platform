@@ -1,7 +1,7 @@
 ---
-# Enable client IP detection from X-Real-IP header
-# OCI Application Load Balancer (type: lb) sets X-Real-IP to the original client IP
-# This is simpler and more reliable than parsing XFF
+# Enable client IP detection from PROXY protocol v2
+# OCI Application Load Balancer (type: lb) is configured to send PROXY protocol v2 headers
+# This preserves the original client IP address through the load balancer
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: ClientTrafficPolicy
 metadata:
@@ -12,6 +12,4 @@ spec:
     group: gateway.networking.k8s.io
     kind: Gateway
     name: external
-  clientIPDetection:
-    customHeader:
-      name: X-Real-IP
+  enableProxyProtocol: true
