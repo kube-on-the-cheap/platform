@@ -1,0 +1,15 @@
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: cilium-lb
+  namespace: envoy-gateway-system
+spec:
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyService:
+        type: LoadBalancer
+        annotations:
+          io.cilium/lb-ipam-ips: auto
+          io.cilium/ipam-pool: homelab-pool
