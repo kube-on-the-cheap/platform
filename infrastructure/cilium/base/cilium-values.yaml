@@ -29,3 +29,5 @@ cgroup:
   autoMount:
     enabled: false
   hostRoot: /sys/fs/cgroup
+cluster:
+  name: default

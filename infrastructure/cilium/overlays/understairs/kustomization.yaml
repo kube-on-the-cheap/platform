@@ -7,6 +7,6 @@ resources:
 configMapGenerator:
   - name: cilium-values
     namespace: kube-system
-    behavior: merge
+    behavior: replace
     files:
       - values.yaml=cilium-values.yaml
