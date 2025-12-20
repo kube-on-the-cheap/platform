@@ -1,0 +1,6 @@
+cluster:
+  name: understairs
+l2announcements:
+  enabled: true
+externalIPs:
+  enabled: true
