@@ -1,0 +1,20 @@
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-internal
+spec:
+  acme:
+    email: marco.bulgarini+letsencrypt@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-internal-account-key
+    solvers:
+      - selector:
+          dnsZones:
+            - homelab.blacksd.tech
+        dns01:
+          digitalocean:
+            tokenSecretRef:
+              name: do-token
+              key: do-token
