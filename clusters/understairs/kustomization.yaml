@@ -4,5 +4,8 @@ resources:
   - cilium.yaml
   - tailscale.yaml
   - tailscale-config.yaml
-  - envoy-gateway.yaml
-  - envoy-gateway-config.yaml
+  - cert-manager.yaml
+  - certificates.yaml
+  # - envoy-gateway.yaml
+  # - envoy-gateway-config.yaml
+  - external-secrets.yaml

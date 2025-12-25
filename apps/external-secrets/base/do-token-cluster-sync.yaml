@@ -17,11 +17,10 @@ spec:
     refreshInterval: 12h
     secretStoreRef:
       kind: ClusterSecretStore
-      name: oci-vault-oke
+      name: kube-shared-secrets
     target:
       name: do-token
       creationPolicy: Owner
-    data:
-      - secretKey: do-token
-        remoteRef:
-          key: DigitalOceanZoneManagement
+    dataFrom:
+      - extract:
+          key: do-token
