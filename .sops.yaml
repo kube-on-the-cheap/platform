@@ -1,0 +1,24 @@
+keys:
+  # Cluster encryption keys
+  - &understairs age1rqldalz0wppytnn5qzkms98awx43u2kkea878wslktyu6sjrq35sfzktv4
+  - &freeloader age1se6vrwdg3dvwkdg9ysgvsgd30cqxvm007sv4mn0tygjym854g48sllcx9f
+  # Personal keys (for easier operations and data recovery)
+  - &Marco_pgp B31C0D06E2C1EB5A
+  - &Marco_age_backup age1k9pgstv92fnq4mpupu2msd9j7zvv96l07ueqfckrv3nwq94t7vzq7typqx
+creation_rules:
+  - path_regex: .*/overlays/understairs/.*\.sops(?:\.yaml)?$
+    encrypted_regex: ^(stringData)$
+    key_groups:
+      - pgp:
+          - *Marco_pgp
+        age:
+          - *understairs
+          - *Marco_age_backup
+  - path_regex: .*/overlays/freeloader/.*\.sops(?:\.yaml)?$
+    encrypted_regex: ^(stringData)$
+    key_groups:
+      - pgp:
+          - *Marco_pgp
+        age:
+          - *freeloader
+          - *Marco_age_backup

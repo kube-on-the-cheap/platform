@@ -11,7 +11,8 @@
     "k9s@0.50.6",
     "velero@1.15.2",
     "age@1.2",
-    "lychee@0.21"
+    "lychee@0.21",
+    "sops@latest"
   ],
   "shell": {
     "init_hook": [
