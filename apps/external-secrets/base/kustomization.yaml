@@ -3,7 +3,5 @@ kind: Kustomization
 resources:
   - kube-cert-manager.yaml
   - kube-shared-secrets.yaml
-  - letsencrypt-account-key.yaml
   - wildcard-cert-cluster-sync.yaml
   - do-token-cluster-sync.yaml
-  - sender-smtp-cluster-sync.yaml
