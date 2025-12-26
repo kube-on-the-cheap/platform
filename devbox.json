@@ -12,7 +12,8 @@
     "velero@1.15.2",
     "age@1.2",
     "lychee@0.21",
-    "sops@latest"
+    "sops@latest",
+    "kubeconform@latest"
   ],
   "shell": {
     "init_hook": [
@@ -21,6 +22,9 @@
     "scripts": {
       "test": [
         "echo \"Error: no test specified\" && exit 1"
+      ],
+      "validate": [
+        "kubeconform -strict -ignore-missing-schemas -summary -schema-location default -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' -verbose"
       ]
     }
   }
