@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - cert-manager.yaml
   - certificates.yaml
+  - shared-secrets.yaml
   - external-secrets-operator.yaml
   - external-secrets.yaml
   - external-dns.yaml

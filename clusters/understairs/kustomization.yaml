@@ -8,5 +8,6 @@ resources:
   - certificates.yaml
   # - envoy-gateway.yaml
   # - envoy-gateway-config.yaml
+  - shared-secrets.yaml
   - external-secrets-operator.yaml
   - external-secrets.yaml

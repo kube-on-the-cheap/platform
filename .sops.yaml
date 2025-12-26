@@ -1,3 +1,4 @@
+---
 keys:
   # Cluster encryption keys
   - &understairs age1rqldalz0wppytnn5qzkms98awx43u2kkea878wslktyu6sjrq35sfzktv4
@@ -7,7 +8,8 @@ keys:
   - &Marco_age_backup age1k9pgstv92fnq4mpupu2msd9j7zvv96l07ueqfckrv3nwq94t7vzq7typqx
 creation_rules:
   - path_regex: .*/overlays/understairs/.*\.sops(?:\.yaml)?$
-    encrypted_regex: ^(stringData)$
+    encrypted_regex: ^(data|stringData)$
+    mac_only_encrypted: true
     key_groups:
       - pgp:
           - *Marco_pgp
@@ -15,10 +17,14 @@ creation_rules:
           - *understairs
           - *Marco_age_backup
   - path_regex: .*/overlays/freeloader/.*\.sops(?:\.yaml)?$
-    encrypted_regex: ^(stringData)$
+    encrypted_regex: ^(data|stringData)$
+    mac_only_encrypted: true
     key_groups:
       - pgp:
           - *Marco_pgp
         age:
           - *freeloader
           - *Marco_age_backup
+stores:
+  yaml:
+    indent: 2
