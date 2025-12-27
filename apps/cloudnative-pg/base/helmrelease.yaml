@@ -6,6 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   releaseName: cloudnative-pg
+  targetNamespace: cnpg-system
   chart:
     spec:
       chart: cloudnative-pg
