@@ -1,14 +1,15 @@
+---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: local-path-provisioner
+  name: local-pv-lvm
   namespace: flux-system
 spec:
   interval: 15m
-  path: ./apps/local-path-provisioner/base
-  prune: true
   sourceRef:
     kind: GitRepository
     name: platform
-  timeout: 5m
+  path: ./apps/local-pv-lvm/overlays/freeloader
+  prune: true
   wait: true
+  timeout: 10m

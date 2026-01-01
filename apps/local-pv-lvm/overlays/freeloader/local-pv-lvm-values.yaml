@@ -1,0 +1,24 @@
+---
+# Disable all engines except LVM
+engines:
+  local:
+    lvm:
+      enabled: true
+    zfs:
+      enabled: false
+    rawfile:
+      enabled: false
+  replicated:
+    mayastor:
+      enabled: false
+
+# Disable monitoring stack (using centralized Grafana Alloy instead)
+alloy:
+  enabled: false
+loki:
+  enabled: false
+
+# LVM-specific configuration
+lvm-localpv:
+  lvmNode:
+    kubeletDir: /var/lib/kubelet

@@ -15,7 +15,8 @@ resources:
   # - argo-cd.yaml
   # - velero.yaml
   - cloudnative-pg.yaml
-  - local-path-provisioner.yaml
+  # - local-path-provisioner.yaml
+  - local-pv-lvm.yaml
   # - retina.yaml
   # - longhorn.yaml
   # - podinfo.yaml
