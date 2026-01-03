@@ -1,0 +1,17 @@
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: EnvoyProxy
+metadata:
+  name: oci-loadbalancer
+  namespace: envoy-gateway-system
+spec:
+  provider:
+    type: Kubernetes
+    kubernetes:
+      envoyService:
+        type: LoadBalancer
+        annotations:
+          oci.oraclecloud.com/load-balancer-type: nlb
+          oci.oraclecloud.com/security-rule-management-mode: NSG
+          oci-network-load-balancer.oraclecloud.com/oci-network-security-groups: ocid1.networksecuritygroup.oc1.eu-frankfurt-1.aaaaaaaafrdfn54r6aeb3hqpsl7ob2ggffqazvnum3ort73h5ytf4h7zg6fa
+          oci-network-load-balancer.oraclecloud.com/is-ppv2-enabled: "true"
