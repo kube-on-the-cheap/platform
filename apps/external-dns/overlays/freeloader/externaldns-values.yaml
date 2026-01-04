@@ -19,3 +19,7 @@ domainFilters:
   - cloud.blacksd.tech
 txtOwnerId: freeloader
 interval: 5m
+extraArgs:
+  - --exclude-target-net=10.0.0.0/8
+  - --exclude-target-net=172.16.0.0/12
+  - --exclude-target-net=192.168.0.0/16
