@@ -1,5 +1,12 @@
 ---
 # Disable all engines except rawfile
+#
+# NOTE: The rawfile DaemonSet runs on all nodes including control-plane.
+# This is acceptable because volumeBindingMode: WaitForFirstConsumer ensures
+# PVCs only provision on nodes where workloads schedule (i.e., workers).
+# If control-plane resource usage becomes a concern with more nodes, consider
+# adding nodeSelector support upstream or using StorageClass allowedTopologies
+# with explicit worker node labels.
 engines:
   local:
     lvm:
