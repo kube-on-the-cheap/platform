@@ -9,4 +9,4 @@ spec:
   tags:
     - tag:k8s-understairs
     - tag:k8s-exit-node-understairs
-  proxyClass: control-plane
+  proxyClass: worker
