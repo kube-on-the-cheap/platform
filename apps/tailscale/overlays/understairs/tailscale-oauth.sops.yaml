@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  annotations:
+    blacksd.tech/repo: github.com/platform
+  name: tailscale-oauth
+stringData:
+  client_id: ENC[AES256_GCM,data:QpXd5Q46ooTFZVk1h4dagdo=,iv:Vo8p6NlFhVtGctH9yp31n1ebqWX4CHqFL2maqh+ZW74=,tag:TTg0zl91wAufU1jff0WjjQ==,type:str]
+  client_secret: ENC[AES256_GCM,data:ZPRUn3Ke65TKlC4RxVEddO+prjnyMYF3ipaC46zJYIfwia6Cr9qygTFQ1GMHSFAh+6Uv7Nt4p2277zUloyBLnA==,iv:TXsWFCq06bXzJOpbIraCgt8EwXQZQjqkwdN7GkVbVVM=,tag:Uq/bhoB/qQtn6o8ov8OP3w==,type:str]
+sops:
+  age:
+    - recipient: age1rqldalz0wppytnn5qzkms98awx43u2kkea878wslktyu6sjrq35sfzktv4
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBBSE1XamlHY1BQOTVDb0hS
+        OXJONGZrbWxmRWoyZ1NTZ1YwaUlLNlgvRlhFCmdWdENKRHhONnE4TFF2UjBoT2xr
+        L1hOWWUzSEdtWWRpc1FiYTc0Ni84bWMKLS0tIHUxVWt0cTlKZi9JY1paTWROeDZn
+        azJxWERZSVprUUdKUXhzcTdlcWRvRDAKRZQDWRrv8cixbd1YShBm+PWKZGGNbpLG
+        2wF1eITBdnL3UN8Zf8hgLVHLfA7luQX3ZHmUG1IVwkJys01aZCy+lQ==
+        -----END AGE ENCRYPTED FILE-----
+    - recipient: age1k9pgstv92fnq4mpupu2msd9j7zvv96l07ueqfckrv3nwq94t7vzq7typqx
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBsYzQ2M21JejM2c1NwbWFt
+        VG1MN2lYcEtpNm1KSnJUY1B2bHBZSmNTbVI0Ck5FRVNNQkRpNG1JWlhITG93WEtx
+        UGsxL1gxQWsvMWRtQU9sSnNXWDdEeEkKLS0tIFN3eTZaS0tsdjFocTdrZ1NqbWpL
+        TWJ3dTl3bTZSVHBpU2FudkdtRGtZWUkKOTjFHWdP2plnfQxvczCkOPCwmj0LBABn
+        4h6RpQ1FadoF+p1Gp9qv6nUK/UY9qVVXZWJp4CumWQF4/+Fff3LUNg==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-01-06T10:11:27Z"
+  mac: ENC[AES256_GCM,data:OAsU9wIRGMqiiDcauB3zW0YxZhS0rhm20MUAr6MezOZc0JHV4N39bWRn8rAts25osXogWNycDgN1OpVe0SorbIkHw/oM6Y+6nOLlSi5Gvomq1ELZ9U1bcFLxb8TNJuLQtv5wxxu5YG2Vx8ReCPl7Cq9LN4HRy/phIwyEuIj0FN8=,iv:8sBEjnfVjud1ovBmfkOUF1SbdmbBXtLz/BRf2/EBlgM=,tag:pOHXbqWY2GofoS8pLdSfYA==,type:str]
+  pgp:
+    - created_at: "2026-01-06T10:11:27Z"
+      enc: |-
+        -----BEGIN PGP MESSAGE-----
+
+        hQIMA2fheYx7el0jAQ/9H46NM8lfJRtjdl5HNO78RkKNURurGXemhOOZDZEg14u1
+        P4s7vaJviaWzMvAoqOPFoInZAxQ62THwdy7qiy0JLRY+miucPt3KbvLG97WyMQLN
+        XqDIYm/GS1p4ZDXtAdhyDtFyWf5yv2z4UBUqZmAgkZA5nTm/6Snt9b7D2p+qPgD1
+        4N4jI30B7broCLf2g1nK+6ek1dgv95J3FUL4f6bbKEtNlGoLJWZbC94KOYhA1mM1
+        gz4GsvaeVVkgpbgFPqTirHrFCGyJOzGGoupuGRnmlsXtOwLG1ZP1Ha8AB1jksuBR
+        Sx6vfkQ2R+veunq419zynniyQTtwcKYHulTeKR5qU6k/ogSG+meJw1Ew2gxgUO73
+        GhKCMvKzn+1pQhuXPDhXKSsn7hFKtAGxA9QZtsb9T9G1qzciRmWEsPA19qrUgQ7y
+        ZWYCAapdU24pYMxPrL0DQoOfAA3Oq4EqnQAAYQ7EkzpIt52Pvsg8Uvu3LleG0RIw
+        t/aFBtZ1vwGxb8Cti7OwhBnTESE0weQiy5Kw4nWCcJT91ha77uap99PUgcv4TN30
+        J96Qo0pGGCKwMd3kzUzybKlnqXEA/n+Pa2Gse2rV+y/MQ97Fy3EtL/sbBlQHQVis
+        lsUGPjNM++QmTIJE1W0AMx4ubP65bQElO20VmlfY9Q/V/sE72gLChToeCFSyS4XS
+        XgGfWKQZNhAwM9mhysEZA4ayrzrF1Qx9vLSQZ3u9zlFOZW2xN3yH48UqH48qaxKf
+        Nw5EvF+YCHHO4m5ZkMqVzE5UbMk4ZM7nsU6ZL+VgAIHTgTAuEEHD/gjS41D0bbs=
+        =KkV7
+        -----END PGP MESSAGE-----
+      fp: B31C0D06E2C1EB5A
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.11.0
