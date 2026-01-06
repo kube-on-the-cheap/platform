@@ -1,0 +1,12 @@
+apiVersion: tailscale.com/v1alpha1
+kind: Connector
+metadata:
+  name: understairs-exit
+  namespace: tailscale
+spec:
+  hostname: understairs-exit
+  exitNode: true
+  tags:
+    - tag:k8s-understairs
+    - tag:k8s-exit-node-understairs
+  proxyClass: control-plane

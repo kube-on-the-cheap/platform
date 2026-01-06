@@ -2,8 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base
-  # - proxyclass.yaml
-  # - ingress.tailscale.yaml
+  - proxyclass.yaml
+  - tailscale-oauth.sops.yaml
+  - connector-exit-node.yaml
 configMapGenerator:
   - name: tailscale-values
     namespace: flux-system

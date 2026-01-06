@@ -3,10 +3,10 @@ apiServerProxyConfig:
 operatorConfig:
   hostname: freeloader
   defaultTags:
-    - tag:k8s-operator
+    - tag:k8s-operator-freeloader
   image:
     repository: ghcr.io/tailscale/k8s-operator
 proxyConfig:
-  defaultTags: tag:onprem
+  defaultTags: tag:k8s-freeloader
   image:
     repository: ghcr.io/tailscale/tailscale

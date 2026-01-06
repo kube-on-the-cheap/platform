@@ -10,8 +10,8 @@ spec:
     - kind: Secret
       name: tailscale-oauth
       targetPath: oauth.clientId
-      valuesKey: clientId
+      valuesKey: client_id
     - kind: Secret
       name: tailscale-oauth
       targetPath: oauth.clientSecret
-      valuesKey: clientSecret
+      valuesKey: client_secret

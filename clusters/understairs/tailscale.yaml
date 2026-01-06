@@ -13,3 +13,6 @@ spec:
   prune: true
   wait: true
   timeout: 10m0s
+  # INFO: the key location is set in the controller, as per https://fluxcd.io/flux/components/kustomize/kustomizations/#controller-global-decryption
+  decryption:
+    provider: sops
