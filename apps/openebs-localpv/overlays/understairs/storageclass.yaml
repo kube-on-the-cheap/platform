@@ -1,0 +1,14 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: openebs-rawfile
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: rawfile.csi.openebs.io
+parameters:
+  basePath: /var/mnt/openebs-rawfiles
+  fsType: xfs
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true

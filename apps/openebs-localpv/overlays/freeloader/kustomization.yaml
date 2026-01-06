@@ -3,10 +3,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base
+  - storageclass.yaml
 configMapGenerator:
-  - name: local-pv-lvm-values
+  - name: openebs-localpv-values
     namespace: flux-system
     files:
-      - values.yaml=local-pv-lvm-values.yaml
+      - values.yaml=openebs-localpv-values.yaml
 configurations:
   - kustomizeconfig.yaml

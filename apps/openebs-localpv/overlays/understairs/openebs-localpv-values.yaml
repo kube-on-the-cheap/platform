@@ -1,0 +1,34 @@
+---
+# Disable all engines except rawfile
+engines:
+  local:
+    lvm:
+      enabled: false
+    zfs:
+      enabled: false
+    rawfile:
+      enabled: true
+  replicated:
+    mayastor:
+      enabled: false
+
+# Disable monitoring stack (using centralized Grafana Alloy instead)
+alloy:
+  enabled: false
+loki:
+  enabled: false
+
+# Rawfile-specific configuration for Talos
+rawfile-localpv:
+  rawfileNode:
+    kubeletDir: /var/lib/kubelet
+  rawfileController:
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+  rawfilePlugin:
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule

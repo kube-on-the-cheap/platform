@@ -16,7 +16,7 @@ resources:
   # - velero.yaml
   - cloudnative-pg.yaml
   # - local-path-provisioner.yaml
-  - local-pv-lvm.yaml
+  - openebs-localpv.yaml
   # - retina.yaml
   # - longhorn.yaml
   # - podinfo.yaml
