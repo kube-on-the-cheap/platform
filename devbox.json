@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
   "packages": [
-    "fluxcd@2.4.0",
+    "fluxcd@2.7.5",
     "kubectl@1.32.1",
     "oci-cli@3.14.0",
     "kubernetes-helm-wrapped@3.17.1",
