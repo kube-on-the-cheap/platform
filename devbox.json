@@ -3,7 +3,7 @@
   "packages": [
     "fluxcd@2.4.0",
     "kubectl@1.32.1",
-    "oci-cli@3.14.0",
+    "oci-cli@3.72.0",
     "kubernetes-helm-wrapped@3.17.1",
     "pre-commit@4.0.1",
     "kustomize@5.6.0",
