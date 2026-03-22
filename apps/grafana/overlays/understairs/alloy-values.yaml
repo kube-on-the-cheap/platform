@@ -46,7 +46,7 @@ clusterEvents:
   enabled: true
 
 nodeLogs:
-  enabled: true
+  enabled: false  # Talos Linux has no systemd-journald (/var/log/journal)
 podLogs:
   enabled: true
 
