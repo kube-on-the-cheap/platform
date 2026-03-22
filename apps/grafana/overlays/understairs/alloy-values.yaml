@@ -90,7 +90,7 @@ alloy-singleton:
         {"__address__" = "192.168.20.6:9100", "instance" = "ap-02"},
         {"__address__" = "192.168.20.7:9100", "instance" = "ap-03"},
       ]
-      scrape_interval = "15s"
+      scrape_interval = "30s"
       forward_to      = [prometheus.remote_write.grafana_cloud_metrics.receiver]
     }
 
