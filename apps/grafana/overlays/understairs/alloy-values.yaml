@@ -1,0 +1,128 @@
+global:
+  scrapeInterval: 90s
+
+cluster:
+  name: understairs
+
+destinations:
+  - name: grafana-cloud-metrics
+    type: prometheus
+    url: https://prometheus-prod-24-prod-eu-west-2.grafana.net/api/prom/push
+    auth:
+      type: basic
+      username: "2355589"
+  - name: grafana-cloud-logs
+    type: loki
+    url: https://logs-prod-012.grafana.net/loki/api/v1/push
+    auth:
+      type: basic
+      username: "1173472"
+
+# -- Kubernetes observability --
+
+# https://github.com/grafana/k8s-monitoring-helm/blob/main/charts/k8s-monitoring/charts/feature-cluster-metrics/values.yaml
+clusterMetrics:
+  enabled: true
+  kube-state-metrics:
+    metricsTuning:
+      useDefaultAllowList: false
+  node-exporter:
+    metricsTuning:
+      useIntegrationAllowList: true
+
+annotationAutodiscovery:
+  enabled: true
+  annotations:
+    scrape: prometheus.io/scrape
+    metricsPath: prometheus.io/path
+    metricsPortNumber: prometheus.io/port
+
+prometheusOperatorObjects:
+  enabled: true
+  crds:
+    deploy: true
+
+clusterEvents:
+  enabled: true
+
+nodeLogs:
+  enabled: true
+podLogs:
+  enabled: true
+
+# -- External device observability --
+
+# Syslog receiver for OpenWRT and other network devices (TCP)
+# Configure your devices to send syslog to <alloy-singleton-service>:1514
+# The k8s-monitoring chart's extraConfig on the singleton instance injects custom Alloy config
+alloy-singleton:
+  enabled: true
+  alloy:
+    extraPorts:
+      - name: syslog
+        port: 1514
+        targetPort: 1514
+        protocol: TCP
+    # Schedule on control plane nodes
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      node-role.kubernetes.io/control-plane: ""
+  extraConfig: |-
+    // Syslog receiver for network devices (OpenWRT, switches, APs)
+    loki.source.syslog "network_devices" {
+      listener {
+        address  = "0.0.0.0:1514"
+        protocol = "tcp"
+        labels   = {
+          job = "syslog/network-devices",
+        }
+      }
+      forward_to = [loki.write.grafana_cloud_logs.receiver]
+    }
+
+    // Prometheus scrape for OpenWRT node exporters
+    prometheus.scrape "openwrt" {
+      targets = [
+        {"__address__" = "192.168.20.5:9100", "instance" = "ap-01"},
+        {"__address__" = "192.168.20.6:9100", "instance" = "ap-02"},
+        {"__address__" = "192.168.20.7:9100", "instance" = "ap-03"},
+      ]
+      scrape_interval = "15s"
+      forward_to      = [prometheus.remote_write.grafana_cloud_metrics.receiver]
+    }
+
+# -- Alloy instance configuration --
+
+alloy-metrics:
+  enabled: true
+  alloy:
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+    nodeSelector:
+      node-role.kubernetes.io/control-plane: ""
+alloy-logs:
+  enabled: true
+
+integrations:
+  alloy:
+    instances:
+      - name: alloy-metrics
+        labelSelectors:
+          app.kubernetes.io/name: alloy-metrics
+        metrics:
+          tuning:
+            excludeMetrics:
+              - alloy_component_dependencies_wait_seconds_bucket
+              - alloy_component_evaluation_seconds_bucket
+      - name: alloy
+        labelSelectors:
+          app.kubernetes.io/name: [alloy-logs, alloy-singleton]
+        metrics:
+          tuning:
+            useDefaultAllowList: false
+            includedMetrics: [alloy_build_info]

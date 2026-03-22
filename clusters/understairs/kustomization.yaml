@@ -12,3 +12,4 @@ resources:
   - shared-secrets.yaml
   - external-secrets-operator.yaml
   - external-secrets.yaml
+  - grafana.yaml

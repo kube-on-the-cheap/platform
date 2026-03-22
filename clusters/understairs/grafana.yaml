@@ -9,9 +9,9 @@ spec:
   sourceRef:
     kind: GitRepository
     name: platform
-  path: ./apps/grafana/overlays/freeloader
+  path: ./apps/grafana/overlays/understairs
   prune: true
   wait: true
   timeout: 10m0s
-  dependsOn:
-    - name: external-secrets
+  decryption:
+    provider: sops
