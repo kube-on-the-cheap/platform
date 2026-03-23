@@ -13,3 +13,4 @@ resources:
   - external-secrets-operator.yaml
   - external-secrets.yaml
   - grafana.yaml
+  - apps-bootstrap.yaml

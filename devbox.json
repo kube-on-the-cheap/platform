@@ -13,7 +13,8 @@
     "age@1.2",
     "lychee@0.21",
     "sops@latest",
-    "kubeconform@latest"
+    "kubeconform@latest",
+    "grafanactl@latest"
   ],
   "shell": {
     "init_hook": [

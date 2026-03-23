@@ -101,6 +101,54 @@
       "last_modified": "2025-07-19T04:40:28Z",
       "resolved": "github:NixOS/nixpkgs/6b4955211758ba47fac850c040a27f23b9b4008f?lastModified=1752900028&narHash=sha256-dPALCtmik9Wr14MGqVXm%2BOQcv7vhPBXcWNIOThGnB%2FQ%3D"
     },
+    "grafanactl@latest": {
+      "last_modified": "2026-02-23T15:40:43Z",
+      "resolved": "github:NixOS/nixpkgs/80d901ec0377e19ac3f7bb8c035201e2e098cc97#grafanactl",
+      "source": "devbox-search",
+      "version": "0.1.9",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/82mzyvjychq6qqwv0z5cy7wlmjswd38l-grafanactl-0.1.9",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/82mzyvjychq6qqwv0z5cy7wlmjswd38l-grafanactl-0.1.9"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pcc1zg937s8nxcw8i0vqiwxs321mwv50-grafanactl-0.1.9",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/pcc1zg937s8nxcw8i0vqiwxs321mwv50-grafanactl-0.1.9"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/fs3cyh9dwlmkmasmsxl4lp4az1qiwq13-grafanactl-0.1.9",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/fs3cyh9dwlmkmasmsxl4lp4az1qiwq13-grafanactl-0.1.9"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ndnyffj05yvi3px5f9zg7vhyaz04frz4-grafanactl-0.1.9",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ndnyffj05yvi3px5f9zg7vhyaz04frz4-grafanactl-0.1.9"
+        }
+      }
+    },
     "k9s@0.50.6": {
       "last_modified": "2025-06-20T02:24:11Z",
       "resolved": "github:NixOS/nixpkgs/076e8c6678d8c54204abcb4b1b14c366835a58bb#k9s",

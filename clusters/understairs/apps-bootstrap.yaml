@@ -9,13 +9,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: platform
-  path: ./apps/apps-bootstrap/overlays/freeloader
+  path: ./apps/apps-bootstrap/overlays/understairs
   prune: false
   wait: false
   timeout: 10m0s
-  # TODO: this should be the last to come up
-  #
-  # dependsOn:
-  #   - name: external-secrets
-  #   - name: external-dns
-  #   - name: project-contour
