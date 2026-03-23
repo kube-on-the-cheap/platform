@@ -35,6 +35,8 @@ l2announcements:
   enabled: true
 externalIPs:
   enabled: true
+authentication:
+  enabled: true
 hubble:
   ui:
     enabled: true
