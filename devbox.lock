@@ -49,51 +49,51 @@
         }
       }
     },
-    "fluxcd@2.4.0": {
-      "last_modified": "2025-02-23T09:42:26Z",
-      "resolved": "github:NixOS/nixpkgs/2d068ae5c6516b2d04562de50a58c682540de9bf#fluxcd",
+    "fluxcd@2.8.3": {
+      "last_modified": "2026-03-18T13:30:56Z",
+      "resolved": "github:NixOS/nixpkgs/9cf7092bdd603554bd8b63c216e8943cf9b12512#fluxcd",
       "source": "devbox-search",
-      "version": "2.4.0",
+      "version": "2.8.3",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/96ddhiw3zrlg4pka34kv099lh0yb1a3r-fluxcd-2.4.0",
+              "path": "/nix/store/pqxl36r5zgwmi8sqvdck40d7yayw9bm1-fluxcd-2.8.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/96ddhiw3zrlg4pka34kv099lh0yb1a3r-fluxcd-2.4.0"
+          "store_path": "/nix/store/pqxl36r5zgwmi8sqvdck40d7yayw9bm1-fluxcd-2.8.3"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/3rwhgf4ybjp45yxppbcj73kd34hwh82p-fluxcd-2.4.0",
+              "path": "/nix/store/shbvp63r6r3771m8h15z55nij44ldxn1-fluxcd-2.8.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/3rwhgf4ybjp45yxppbcj73kd34hwh82p-fluxcd-2.4.0"
+          "store_path": "/nix/store/shbvp63r6r3771m8h15z55nij44ldxn1-fluxcd-2.8.3"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/d26ffyc9f3dd48c7kihf28ffgkx06il8-fluxcd-2.4.0",
+              "path": "/nix/store/s1z78qiysgs1iimif5r6g6178iqff3i7-fluxcd-2.8.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/d26ffyc9f3dd48c7kihf28ffgkx06il8-fluxcd-2.4.0"
+          "store_path": "/nix/store/s1z78qiysgs1iimif5r6g6178iqff3i7-fluxcd-2.8.3"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/lk3r0wg79g3sl07lx2mn817dzjdpykdd-fluxcd-2.4.0",
+              "path": "/nix/store/23dgfs9zcmmxbm91a1scsmvmdx98dwbp-fluxcd-2.8.3",
               "default": true
             }
           ],
-          "store_path": "/nix/store/lk3r0wg79g3sl07lx2mn817dzjdpykdd-fluxcd-2.4.0"
+          "store_path": "/nix/store/23dgfs9zcmmxbm91a1scsmvmdx98dwbp-fluxcd-2.8.3"
         }
       }
     },
