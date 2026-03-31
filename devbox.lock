@@ -329,51 +329,51 @@
         }
       }
     },
-    "kubernetes-helm-wrapped@3.17.1": {
-      "last_modified": "2025-03-11T17:52:14Z",
-      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#kubernetes-helm-wrapped",
+    "kubernetes-helm-wrapped@3.19.1": {
+      "last_modified": "2026-03-21T07:29:51Z",
+      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#kubernetes-helm-wrapped",
       "source": "devbox-search",
-      "version": "3.17.1",
+      "version": "3.19.1",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/s4cfbfwvzf5d83z1gd7yjz9bsj7wmhic-helm-3.17.1",
+              "path": "/nix/store/cm7wpdswr90sq16y30q9aaa8qagvzi1b-helm-3.19.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/s4cfbfwvzf5d83z1gd7yjz9bsj7wmhic-helm-3.17.1"
+          "store_path": "/nix/store/cm7wpdswr90sq16y30q9aaa8qagvzi1b-helm-3.19.1"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/dyik28ga8n7f2cb0idvhmzfrwy4icsjn-helm-3.17.1",
+              "path": "/nix/store/bqkbsxnj1y8hq16xw4ibas434pi5j24h-helm-3.19.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/dyik28ga8n7f2cb0idvhmzfrwy4icsjn-helm-3.17.1"
+          "store_path": "/nix/store/bqkbsxnj1y8hq16xw4ibas434pi5j24h-helm-3.19.1"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/47w47g7nfw6cqv1x6bjx9f70x0fsrbs8-helm-3.17.1",
+              "path": "/nix/store/482lq4hihhi1l2lxh2pbln11xilk91mj-helm-3.19.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/47w47g7nfw6cqv1x6bjx9f70x0fsrbs8-helm-3.17.1"
+          "store_path": "/nix/store/482lq4hihhi1l2lxh2pbln11xilk91mj-helm-3.19.1"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/rdmmnlgdz297npsmgrgfsdisrcjdkkc2-helm-3.17.1",
+              "path": "/nix/store/wa7i6m1mg8i3ckx8yi2bq82gz9wxawls-helm-3.19.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/rdmmnlgdz297npsmgrgfsdisrcjdkkc2-helm-3.17.1"
+          "store_path": "/nix/store/wa7i6m1mg8i3ckx8yi2bq82gz9wxawls-helm-3.19.1"
         }
       }
     },
