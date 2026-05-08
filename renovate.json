@@ -7,6 +7,7 @@
   "flux": {
     "fileMatch": [
       "(^|/)apps/.+/base/helmrelease\\.ya?ml$",
+      "(^|/)apps/.+/base/helmrepository\\.ya?ml$",
       "(^|/)apps/.+/overlays/.+/helmrelease\\.ya?ml$",
       "(^|/)clusters/.+\\.ya?ml$"
     ]
@@ -26,10 +27,10 @@
   },
   "packageRules": [
     {
-      "description": "Group Flux HelmRelease chart updates by app",
+      "description": "Group Helm chart updates per chart",
       "matchDatasources": ["helm"],
       "matchFileNames": ["apps/**"],
-      "groupName": "helm-charts",
+      "groupName": "helm-{{depName}}",
       "commitMessageTopic": "{{depName}} Helm chart",
       "separateMinorPatch": true
     },
@@ -54,8 +55,9 @@
       "commitMessagePrefix": "MAJOR: "
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "description": "Update container images in HelmRelease values",
       "fileMatch": [
         "(^|/)apps/.+/base/helmrelease\\.ya?ml$",
@@ -68,6 +70,7 @@
       "datasourceTemplate": "docker"
     },
     {
+      "customType": "regex",
       "description": "Update Flux Kustomization images",
       "fileMatch": [
         "(^|/)\\.?kustomization\\.ya?ml$"
