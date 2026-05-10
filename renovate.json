@@ -27,10 +27,23 @@
   },
   "packageRules": [
     {
+      "description": "Devbox tooling updates",
+      "matchManagers": ["devbox"],
+      "groupName": "devbox-tools",
+      "additionalBranchPrefix": "tooling/",
+      "addLabels": ["tooling"],
+      "commitMessageTopic": "{{depName}} devbox package",
+      "separateMinorPatch": false,
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
       "description": "Group Helm chart updates per chart",
       "matchDatasources": ["helm"],
       "matchFileNames": ["apps/**"],
       "groupName": "helm-{{depName}}",
+      "additionalBranchPrefix": "cluster/",
+      "addLabels": ["cluster"],
       "commitMessageTopic": "{{depName}} Helm chart",
       "separateMinorPatch": true
     },
@@ -39,6 +52,8 @@
       "matchDatasources": ["docker"],
       "matchFileNames": ["apps/**"],
       "groupName": "container-images",
+      "additionalBranchPrefix": "cluster/",
+      "addLabels": ["cluster"],
       "commitMessageTopic": "{{depName}} container image"
     },
     {
