@@ -11,6 +11,7 @@ resources:
   - envoy-gateway.yaml
   - envoy-gateway-config.yaml
   - tailscale.yaml
+  - tailscale-config.yaml
   # - grafana.yaml
   # - argo-cd.yaml
   # - velero.yaml
