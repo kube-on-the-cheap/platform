@@ -13,4 +13,3 @@ spec:
     kind: Gateway
     name: external
   enableProxyProtocol: true
-  http3: {}
