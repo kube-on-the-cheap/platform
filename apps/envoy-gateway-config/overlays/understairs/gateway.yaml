@@ -5,7 +5,7 @@ metadata:
   name: external
   namespace: envoy-gateway-system
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-internal
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   gatewayClassName: envoy-gateway
   listeners:
@@ -18,12 +18,16 @@ spec:
     - name: https
       protocol: HTTPS
       port: 443
-      hostname: "*.home.blacksd.tech"
+      hostname: "*.homelab.blacksd.tech"
       allowedRoutes:
         namespaces:
           from: All
       tls:
         mode: Terminate
+        certificateRefs:
+          - kind: Secret
+            name: wildcard-cert
+            namespace: envoy-gateway-system
     - name: dns
       protocol: UDP
       port: 53
