@@ -9,6 +9,8 @@ resources:
   - certificates.yaml
   - envoy-gateway.yaml
   - envoy-gateway-config.yaml
+  - cloudnative-pg.yaml
+  - cloudnative-pg-config.yaml
   - shared-secrets.yaml
   - external-secrets-operator.yaml
   - external-secrets.yaml

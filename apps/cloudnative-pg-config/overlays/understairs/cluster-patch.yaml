@@ -1,0 +1,10 @@
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: shared
+  namespace: postgres
+spec:
+  storage:
+    storageClass: openebs-rawfile
+    size: 10Gi

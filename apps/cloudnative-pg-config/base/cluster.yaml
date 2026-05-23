@@ -1,0 +1,23 @@
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: shared
+  namespace: postgres
+spec:
+  instances: 1
+  primaryUpdateStrategy: unsupervised
+  postgresql:
+    parameters:
+      max_connections: "200"
+      shared_buffers: 256MB
+  storage:
+    size: 10Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 512Mi
+    limits:
+      memory: 1Gi
+  monitoring:
+    enablePodMonitor: false
