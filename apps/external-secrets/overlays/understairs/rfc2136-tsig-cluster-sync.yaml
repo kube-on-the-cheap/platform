@@ -1,0 +1,25 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterExternalSecret
+metadata:
+  name: rfc2136-tsig-cluster-sync
+spec:
+  externalSecretName: rfc2136-tsig
+  refreshTime: 60m
+  namespaceSelector:
+    matchExpressions:
+      - key: kubernetes.io/metadata.name
+        operator: In
+        values:
+          - external-dns
+  externalSecretSpec:
+    refreshInterval: 12h
+    secretStoreRef:
+      kind: ClusterSecretStore
+      name: kube-shared-secrets
+    target:
+      name: rfc2136-tsig
+      creationPolicy: Owner
+    dataFrom:
+      - extract:
+          key: rfc2136-tsig

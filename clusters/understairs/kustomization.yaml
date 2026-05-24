@@ -14,5 +14,6 @@ resources:
   - shared-secrets.yaml
   - external-secrets-operator.yaml
   - external-secrets.yaml
+  - external-dns.yaml
   - grafana.yaml
   - apps-bootstrap.yaml

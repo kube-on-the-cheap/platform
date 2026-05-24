@@ -1,0 +1,33 @@
+---
+provider:
+  name: rfc2136
+env:
+  - name: EXTERNAL_DNS_RFC2136_TSIG_KEYNAME
+    valueFrom:
+      secretKeyRef:
+        name: rfc2136-tsig
+        key: keyname
+  - name: EXTERNAL_DNS_RFC2136_TSIG_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: rfc2136-tsig
+        key: secret
+sources:
+  - service
+  - ingress
+  - gateway-httproute
+  - gateway-grpcroute
+  - gateway-tcproute
+  - gateway-tlsroute
+  - gateway-udproute
+domainFilters:
+  - homelab.blacksd.tech
+txtOwnerId: understairs
+policy: sync
+interval: 5m
+extraArgs:
+  - --rfc2136-host=192.168.20.200
+  - --rfc2136-port=53
+  - --rfc2136-zone=homelab.blacksd.tech
+  - --rfc2136-tsig-secret-alg=hmac-sha256
+  - --rfc2136-tsig-axfr
