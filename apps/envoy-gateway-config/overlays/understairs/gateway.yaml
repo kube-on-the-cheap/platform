@@ -6,6 +6,8 @@ metadata:
   namespace: envoy-gateway-system
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/private-key-algorithm: ECDSA
+    cert-manager.io/private-key-size: "256"
 spec:
   gatewayClassName: envoy-gateway
   listeners:

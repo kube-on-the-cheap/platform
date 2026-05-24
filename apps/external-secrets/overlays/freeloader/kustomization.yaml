@@ -7,3 +7,4 @@ resources:
   - oci-vault-s3.yaml
   - sender-smtp-cluster-sync.yaml
   - letsencrypt-account-key.yaml
+  - wildcard-cert-cluster-sync.yaml
