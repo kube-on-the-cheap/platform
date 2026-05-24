@@ -9,7 +9,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: platform
-  path: ./apps/cert-manager/base
+  path: ./apps/cert-manager/overlays/freeloader
   prune: true
   wait: true
   timeout: 10m0s

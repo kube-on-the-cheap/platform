@@ -28,9 +28,3 @@ spec:
           - kind: Secret
             name: wildcard-cert
             namespace: envoy-gateway-system
-    - name: dns
-      protocol: UDP
-      port: 53
-      allowedRoutes:
-        namespaces:
-          from: All
