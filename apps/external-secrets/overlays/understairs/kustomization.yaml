@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ../../base
   - rfc2136-tsig-cluster-sync.yaml
-  - vaultwarden-smtp-cluster-sync.yaml
+  - smtp-cluster-sync.yaml

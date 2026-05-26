@@ -2,9 +2,9 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ClusterExternalSecret
 metadata:
-  name: vaultwarden-smtp-cluster-sync
+  name: smtp-cluster-sync
 spec:
-  externalSecretName: vaultwarden-smtp
+  externalSecretName: smtp-creds
   refreshTime: 60m
   namespaceSelector:
     matchExpressions:
@@ -12,14 +12,15 @@ spec:
         operator: In
         values:
           - vaultwarden
+          - bitwarden
   externalSecretSpec:
     refreshInterval: 12h
     secretStoreRef:
       kind: ClusterSecretStore
       name: kube-shared-secrets
     target:
-      name: vaultwarden-smtp
+      name: smtp-creds
       creationPolicy: Owner
     dataFrom:
       - extract:
-          key: vaultwarden-smtp
+          key: smtp-creds
