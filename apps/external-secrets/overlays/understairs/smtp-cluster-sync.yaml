@@ -12,7 +12,6 @@ spec:
         operator: In
         values:
           - vaultwarden
-          - bitwarden
   externalSecretSpec:
     refreshInterval: 12h
     secretStoreRef:
