@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - cilium.yaml
   - openebs-localpv.yaml
+  - csi-driver-nfs.yaml
   - tailscale.yaml
   - tailscale-config.yaml
   - cert-manager.yaml
