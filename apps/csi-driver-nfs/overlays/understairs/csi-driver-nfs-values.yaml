@@ -1,0 +1,32 @@
+---
+# Talos kubelet directory matches the chart default (/var/lib/kubelet), so no
+# override is needed there.
+#
+# Node DaemonSet tolerations are left at the chart default (operator: Exists),
+# which means the node plugin runs on both the control-plane (pi1) and worker
+# (minipc1). Apps that consume NFS-backed PVs only schedule on workers, but
+# having the plugin present on every node is harmless and matches how the
+# openebs-rawfile DaemonSet is configured on this cluster.
+#
+# Controller runs as a single replica with runOnControlPlane=false, so it
+# lands on minipc1.
+#
+# No StorageClass is created here: consumer apps (calibre-web, audiobookshelf)
+# reference static PVs that point at the Synology NFS exports directly via
+# csi.driver: nfs.csi.k8s.io. The existing openebs-rawfile StorageClass remains
+# the cluster default.
+controller:
+  replicas: 1
+  runOnControlPlane: false
+
+externalSnapshotter:
+  # Snapshot CRDs are not used by the current NFS workloads. Leave the
+  # snapshotter sidecar enabled (chart default) but skip the cluster-wide
+  # snapshot-controller deployment and CRDs to avoid clashing with any future
+  # centralised snapshot-controller install.
+  enabled: false
+  customResourceDefinitions:
+    enabled: false
+
+storageClass:
+  create: false
