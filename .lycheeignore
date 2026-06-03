@@ -6,3 +6,5 @@ https://charts.longhorn.io/
 https://github.com/kube-on-the-cheap/apps
 https://raw.githubusercontent.com/datreeio/CRDs-catalog
 https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/*
+https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
+https://github.com/microsoft/retina/issues/1582
