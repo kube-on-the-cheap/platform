@@ -18,8 +18,12 @@ spec:
         name: csi-driver-nfs
   install:
     crds: CreateReplace
+    remediation:
+      retries: 3
   upgrade:
     crds: CreateReplace
+    remediation:
+      retries: 3
   driftDetection:
     mode: enabled
   valuesFrom:
