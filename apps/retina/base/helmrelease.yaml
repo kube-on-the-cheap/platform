@@ -16,6 +16,9 @@ spec:
     # crds: CreateReplace
     remediation:
       retries: 2
+  upgrade:
+    remediation:
+      retries: 2
   # upgrade:
   #   crds: CreateReplace
   driftDetection:
