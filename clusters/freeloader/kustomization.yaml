@@ -7,12 +7,13 @@ resources:
   - external-secrets-operator.yaml
   - external-secrets.yaml
   - external-dns.yaml
+  - prometheus-operator-crds.yaml
   # - project-contour.yaml
   - envoy-gateway.yaml
   - envoy-gateway-config.yaml
   - tailscale.yaml
   - tailscale-config.yaml
-  # - grafana.yaml
+  - grafana.yaml
   # - argo-cd.yaml
   # - velero.yaml
   - cloudnative-pg.yaml

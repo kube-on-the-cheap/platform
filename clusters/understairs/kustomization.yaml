@@ -16,5 +16,6 @@ resources:
   - external-secrets-operator.yaml
   - external-secrets.yaml
   - external-dns.yaml
+  - prometheus-operator-crds.yaml
   - grafana.yaml
   - apps-bootstrap.yaml
