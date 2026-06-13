@@ -7,6 +7,7 @@ resources:
   - external-secrets-operator.yaml
   - external-secrets.yaml
   - external-dns.yaml
+  - prometheus-operator-crds.yaml
   # - project-contour.yaml
   - envoy-gateway.yaml
   - envoy-gateway-config.yaml
