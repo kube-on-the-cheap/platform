@@ -15,3 +15,5 @@ spec:
   timeout: 10m0s
   decryption:
     provider: sops
+  dependsOn:
+    - name: prometheus-operator-crds
