@@ -13,7 +13,7 @@ resources:
   - envoy-gateway-config.yaml
   - tailscale.yaml
   - tailscale-config.yaml
-  # - grafana.yaml
+  - grafana.yaml
   # - argo-cd.yaml
   # - velero.yaml
   - cloudnative-pg.yaml
