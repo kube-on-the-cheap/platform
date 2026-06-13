@@ -11,11 +11,6 @@ configMapGenerator:
 configurations:
   - kustomizeconfig.yaml
 patches:
-  - path: helmrelease.patch.yaml
-    target:
-      group: helm.toolkit.fluxcd.io
-      version: v2
-      kind: HelmRelease
   # Remove ExternalSecret from base (understairs uses SOPS-encrypted secrets)
   - patch: |
       $patch: delete
