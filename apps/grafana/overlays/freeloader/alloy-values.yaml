@@ -17,7 +17,7 @@ destinations:
       username: "1173472"
 
 global:
-  scrapeInterval: 90s
+  scrapeInterval: 120s
 
 # -- Kubernetes observability --
 
@@ -26,7 +26,28 @@ clusterMetrics:
   collector: alloy-metrics
   kube-state-metrics:
     metricsTuning:
-      useDefaultAllowList: false
+      useDefaultAllowList: true
+  kubelet:
+    metricsTuning:
+      useDefaultAllowList: true
+  cadvisor:
+    metricsTuning:
+      useDefaultAllowList: true
+      excludeMetrics:
+        - container_blkio_.*
+        - container_tasks_state
+        - container_memory_failures_total
+        - container_fs_io_.*
+  apiServer:
+    enabled: true
+    metricsTuning:
+      useDefaultAllowList: true
+      excludeMetrics:
+        - apiserver_request_duration_seconds_bucket
+        - apiserver_response_sizes_bucket
+        - apiserver_watch_events_sizes_bucket
+  controlPlane:
+    enabled: false
 
 hostMetrics:
   enabled: true
@@ -47,6 +68,18 @@ annotationAutodiscovery:
 prometheusOperatorObjects:
   enabled: true
   collector: alloy-metrics
+  serviceMonitors:
+    excludeNamespaces: [kube-system]
+    metricsTuning:
+      excludeMetrics:
+        - .*_bucket
+        - .*_sum
+  podMonitors:
+    excludeNamespaces: [kube-system]
+    metricsTuning:
+      excludeMetrics:
+        - .*_bucket
+        - .*_sum
 
 clusterEvents:
   enabled: true
@@ -55,11 +88,25 @@ clusterEvents:
 podLogsViaLoki:
   enabled: true
   collector: alloy-daemonset
+  excludeNamespaces: [kube-system, flux-system, velero]
+  extraLogProcessingStages: |-
+    stage.match {
+      selector = "{namespace=\"grafana\", app=\"alloy\"} |~ \"level=info\""
+      action = "drop"
+    }
+    stage.match {
+      selector = "{namespace=\"argo-cd\", app=\"argocd-repo-server\"} |~ \"level=info\""
+      action = "drop"
+    }
 
-# OCI nodes have systemd journals; node logs ship via the daemonset collector.
 nodeLogs:
   enabled: true
   collector: alloy-daemonset
+  extraLogProcessingStages: |-
+    stage.match {
+      selector = "{unit=\"kubelet.service\"} |~ \"level=info\""
+      action = "drop"
+    }
 
 # -- Self-monitoring --
 
