@@ -15,3 +15,4 @@ spec:
   timeout: 10m0s
   dependsOn:
     - name: external-secrets
+    - name: prometheus-operator-crds
