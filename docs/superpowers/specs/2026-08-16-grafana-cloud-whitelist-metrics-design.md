@@ -1,20 +1,30 @@
 # Grafana Cloud whitelist-based metrics collection
 
-Date: 2026-08-16
-Status: Draft - pending user review
+Date: 2026-08-16 (updated 2026-08-22 with post-rollout corrections)
+Status: Implemented and merged (PR #54)
 
 ## Problem
 
 After the Phase 1 cardinality cuts (see
 `2026-06-09-grafana-cloud-cardinality-optimization-design.md`), Grafana Cloud
 active series across `freeloader` and `understairs` sit near the top of the
-20,000 free-tier ceiling and periodically exceed it. The current configuration
-relies on the k8s-monitoring chart's `useDefaultAllowList: true` for
+tenant ceiling and periodically exceed it. The current configuration relies
+on the k8s-monitoring chart's `useDefaultAllowList: true` for
 `kube-state-metrics`, `cadvisor`, and `kubelet`. That default list is curated
 for the Grafana Cloud Kubernetes integration dashboards - useful, but broader
 than this homelab needs. It ships metrics that will never be queried here,
 including full apiserver bucket histograms via
 `apiserver_request_duration_seconds_count` and similar.
+
+**Tenant limits observed during rollout (2026-08-17):**
+- Active series ceiling: **15,000** (not 20,000 as previously assumed - Grafana
+  Cloud free-tier limits for this stack are stricter than the public
+  documentation implies).
+- Ingestion rate: **1,500 samples/s** with a 15,000-sample burst
+  (`err-mimir-tenant-max-ingestion-rate`).
+- Out-of-order sample window: samples with timestamps older than the ingester
+  window are rejected with 400 `err-mimir-sample-timestamp-too-old` - relevant
+  after a config change when Alloy replays its WAL.
 
 The goal is to move from "default allowlist minus a few excludes" to an
 explicit per-source whitelist that enumerates every metric that ships. Baseline
@@ -22,9 +32,9 @@ monitoring and availability are the target - performance profiling is not.
 
 ## Goals
 
-- Cut active series to well below the 20k ceiling, with headroom to reintroduce
-  a metric or two without approaching the limit. Target: 3-6k active series
-  across both clusters combined.
+- Cut active series to well below the 15k tenant ceiling, with headroom to
+  reintroduce a metric or two without approaching the limit. Target: 3-6k
+  active series across both clusters combined.
 - Express the whitelist in the chart's canonical `metricsTuning` idiom:
   `useDefaultAllowList: false` + `includeMetrics: [...]` per source.
 - Preserve visibility into node health, pod state, and monitoring pipeline
@@ -176,7 +186,7 @@ Detects silent failure to reach Grafana Cloud.
 | **Per cluster**                                    | **~1,900**  |                                   |
 | **Both clusters**                                  | **~3,800**  |                                   |
 | **Plus OpenWRT on understairs**                    | **~150**    |                                   |
-| **Grand total**                                    | **~4,000**  | 16k headroom under 20k ceiling    |
+| **Grand total**                                    | **~4,000**  | 11k headroom under 15k ceiling    |
 
 ## Rollout
 
@@ -246,7 +256,8 @@ Phase 1 state.
 | App later needs a ServiceMonitor consumed but discovery is off  | Documented on `METRICS.md`. Re-enable `prometheusOperatorObjects` with `namespaces: [<the-ns>]`, not globally.   |
 | Alloy self-monitoring metrics themselves get dropped by mistake | Explicit `includeMetrics` block on the `alloy` self-monitoring instance covers the three health metrics.         |
 | kube-state-metrics list misses a namespace-scoped resource type | Add via `includeMetrics`. The list is a floor, not a ceiling; grow it deliberately.                              |
-| Free-tier limit changes                                         | Headroom of ~16k series means a limit reduction to 10k would still be safe.                                      |
+| Free-tier limit changes                                         | Headroom of ~11k series under the observed 15k ceiling means a limit reduction to 5k would still be safe.        |
+| Config-reload WAL replay hits ingestion-rate limit              | Alloy replays its on-disk WAL on config change; large pre-change backlogs (tens of MB) will saturate the 1.5k samples/s limit and produce sustained 429s. Mitigation: `kubectl rollout restart statefulset alloy-alloy-metrics` after the reload settles - drops the stale WAL, cuts cleanly to the new configuration. Cost: brief gap in samples during the pod restart. |
 
 ## File-level scope
 
@@ -274,3 +285,31 @@ Phase 1 state.
     of metrics shipped to Grafana Cloud. Any PR that changes an overlay's
     `includeMetrics` must update this file."
 - `apps/grafana/base/` - unchanged.
+
+## Post-rollout notes (2026-08-17)
+
+Merged as PR #54 (rebase, three commits: `1440fbb`, `d9e0bb9`, `6ab71b0`).
+
+**Deploy observations:**
+
+- Flux reconciled cleanly on both clusters; HelmRelease upgraded to
+  `k8s-monitoring@4.1.7` without pod restart loops.
+- Live Alloy config verified: whitelist keep-rules present, dropped metrics
+  absent, `prometheus.operator.*` discovery components correctly torn down.
+- Initial reload produced sustained 429s (`err-mimir-tenant-max-ingestion-rate`)
+  because Alloy replayed a large pre-change WAL (74 MB on understairs, 48 MB on
+  freeloader) at 1,500 samples/s. Also produced 400
+  `err-mimir-sample-timestamp-too-old` for buffered samples of metrics we no
+  longer collect (e.g. `envoy_cluster_upstream_rq_pending_overflow`,
+  `node_network_transmit_bytes_total`).
+- Resolved by `kubectl rollout restart statefulset alloy-alloy-metrics` on both
+  clusters. Post-restart WAL size dropped to ~4 MB (understairs) and ~2 MB
+  (freeloader). Steady state reached within ~50 minutes: zero remote_write
+  errors over a 10-minute window on both clusters.
+
+**Lessons folded into this spec:**
+
+- The observed 15k active-series ceiling replaces the previously assumed 20k
+  throughout.
+- The WAL-flush recipe (`rollout restart`) is now called out in the risks
+  table as the standard mitigation for reload-time backpressure.
