@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - proxyclass.yaml
   - connector-exit-node.yaml
+  - connector-subnet-router.yaml
   - flux-webui.svc.yaml

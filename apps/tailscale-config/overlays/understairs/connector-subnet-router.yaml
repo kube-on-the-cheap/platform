@@ -1,0 +1,14 @@
+apiVersion: tailscale.com/v1alpha1
+kind: Connector
+metadata:
+  name: understairs-subnet
+  namespace: tailscale
+spec:
+  hostname: understairs-subnet
+  subnetRouter:
+    advertiseRoutes:
+      - 192.168.20.0/24
+  tags:
+    - tag:k8s-understairs
+    - tag:k8s-subnet-router-understairs
+  proxyClass: worker
