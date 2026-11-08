@@ -20,7 +20,7 @@ spec:
     - name: https
       protocol: HTTPS
       port: 443
-      hostname: "*.homelab.blacksd.tech"
+      hostname: "*.homelab.blacksd.dev"
       allowedRoutes:
         namespaces:
           from: All

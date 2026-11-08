@@ -12,7 +12,7 @@ spec:
     solvers:
       - selector:
           dnsZones:
-            - homelab.blacksd.tech
+            - homelab.blacksd.dev
         dns01:
           digitalocean:
             tokenSecretRef:
